@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -42,6 +43,11 @@ public class InventoryManager : MonoBehaviour
 		foreach (var item in inventoryData.IsFree) {
 			inventory[item.x, item.y].SetState(Slot.State.USABLE);
 		}
+	}
+
+	internal void AddItemOnRandSlot(Item item)
+	{
+		throw new NotImplementedException();
 	}
 
 	private Slot CreateSlot(int x, int y, bool locked)

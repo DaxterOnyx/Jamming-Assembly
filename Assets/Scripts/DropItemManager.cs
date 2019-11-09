@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DropItemManager : MonoBehaviour
 {
@@ -30,17 +27,20 @@ public class DropItemManager : MonoBehaviour
 
 	public void AddItem(Item item)
 	{
-		var oldItem = slots[0].GetItem();
-		slots[0].SetItem(item,false);
-		item.SetSlot(Slot.CreateArray(slots[0]));
-		item.Shrink();
-		SetItem(0,oldItem);
+		SetItem(0, item);
 	}
 
 	private void SetItem(int index, Item item)
 	{
-		if (slots.Length <= index)
-			return;
-
+		if (slots.Length <= index) {
+			InventoryManager.Instance.AddItemOnRandSlot(item);
+		} else {
+			var oldItem = slots[index].GetItem();
+			slots[index].SetItem(item, false);
+			item.SetSlot(Slot.CreateArray(slots[index]));
+			item.Shrink();
+			if (oldItem != null)
+				SetItem(index + 1, oldItem);
+		}
 	}
 }

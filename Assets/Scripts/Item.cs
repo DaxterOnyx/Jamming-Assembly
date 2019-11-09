@@ -15,7 +15,6 @@ public class Item : MonoBehaviour
         {
             item.SetState(Slot.State.LOCKED);
             item.SpawnGrid();
-
         }
 	}
 
