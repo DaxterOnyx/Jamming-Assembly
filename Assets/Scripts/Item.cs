@@ -137,22 +137,30 @@ public class Item : MonoBehaviour
 
 	private void OnMouseEnter()
 	{
+		Debug.Log("Ta mere");
 		SelectionManager.Instance.SetItemOver(this);
 		InfoBubble.Instance.Show(this);
 	}
 
 	private void OnMouseExit()
 	{
+	 	Debug.Log("Ton pere");
 		InfoBubble.Instance.Hide();
 	}
 
 	private void OnMouseDown()
 	{
+		Debug.Log("Ta soeur");
+
 		SelectionManager.Instance.SelectItem(this);
 	}
 
 	private void OnMouseUp()
 	{
+
+
+		Debug.Log("Ton Frere");
+
 		SelectionManager.Instance.DropItem(this);
 	}
 	
