@@ -19,8 +19,14 @@ public class SelectionManager : MonoBehaviour
 		}
 	}
 
+	internal void SetItemOver(Item item)
+	{
+		currentItemOver = item;
+	}
+
 	private new Camera camera;
 	private Slot currentCaseOver;
+	private Item currentItemOver;
 
 	private void Start()
 	{

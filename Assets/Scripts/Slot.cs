@@ -30,6 +30,7 @@ public class Slot : MonoBehaviour {
 		this.state = p_state;
 
 		GetComponent<SpriteRenderer>().sprite = sprites[(int)state];
+		
 	}
 
 	internal void SetItem(Item p_item)
