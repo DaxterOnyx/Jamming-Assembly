@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5891d4a06d6304e937a1b4c9ca57f9, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
+  testItem: {fileID: 4787737876409914003, guid: eaf98cada90bc4b4ea8e5654395d2db4,
+    type: 3}
   scrollingArea: {fileID: 9074962045589412588, guid: 6ffc7fcb4d135e64182eef0d9909af83,
     type: 3}
   corridorBackground: {fileID: 3398744597582865136, guid: 56dd6eb205c6bca48b2a5199dec515e4,

@@ -251,3 +251,37 @@ MonoBehaviour:
   defense: 0
   attack: 0
   speed: 0
+--- !u!1001 &4787737875960739389
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4787737876409914003, guid: eaf98cada90bc4b4ea8e5654395d2db4,
+        type: 3}
+      propertyPath: m_Name
+      value: TestObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787737876409913997, guid: eaf98cada90bc4b4ea8e5654395d2db4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787737876409913997, guid: eaf98cada90bc4b4ea8e5654395d2db4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787737876409913997, guid: eaf98cada90bc4b4ea8e5654395d2db4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787737876409913997, guid: eaf98cada90bc4b4ea8e5654395d2db4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eaf98cada90bc4b4ea8e5654395d2db4, type: 3}

@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
         scrollingArea = Instantiate(playerData.scrollingArea, transform);
         defense = 0;
         GameObject background = Instantiate(playerData.corridorBackground, scrollingArea.transform);
+        Instantiate(playerData.testItem, scrollingArea.transform);
         SetSpeed(speed);
     }
 
