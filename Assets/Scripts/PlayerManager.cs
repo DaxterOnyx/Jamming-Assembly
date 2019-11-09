@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+
     private static PlayerManager m_instance;
     public static PlayerManager Instance
     {
@@ -21,7 +22,10 @@ public class PlayerManager : MonoBehaviour
             return m_instance;
         }
     }
-    private GameObject scrollingArea;
+    private List<GameObject> scrollingAreaList;
+    private GameObject scrollingAreaB;
+    private GameObject scrollingAreaI;
+    private GameObject scrollingAreaF;
     public PlayerData playerData;
     public int life;
     public int defense;
@@ -30,21 +34,33 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-
+        scrollingAreaList = new List<GameObject>();
+        //Setup Parameters
         speed = playerData.initialSpeed;
         attack = playerData.initialAtk;
         life = playerData.initialLife;
-        scrollingArea = Instantiate(playerData.scrollingArea, transform);
         defense = 0;
-        GameObject background = Instantiate(playerData.corridorBackground, scrollingArea.transform);
-        Instantiate(playerData.testItem, scrollingArea.transform);
+        //Creation of scrollingAreas
+        scrollingAreaB = Instantiate(playerData.scrollingAreaBackground, transform);
+        scrollingAreaList.Add(scrollingAreaB);
+        scrollingAreaF = Instantiate(playerData.scrollingAreaForeground, transform);
+        scrollingAreaList.Add(scrollingAreaF);
+        scrollingAreaI = Instantiate(playerData.scrollingAreaItems, transform);
+        scrollingAreaList.Add(scrollingAreaI);
+
+        //Initialisation of speed
         SetSpeed(speed);
+        Instantiate(playerData.testItem, scrollingAreaI.transform);
     }
 
 
     public void SetSpeed(float curSpeed)
     {
-        scrollingArea.GetComponent<ScrollingScript>().speed = curSpeed;
+        foreach (var item in scrollingAreaList)
+        {
+            item.GetComponent<ScrollingScript>().speed = curSpeed;
+        }
+
     }
 
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScrollingScript : MonoBehaviour
 {
     public float speed;
+    public float paralaxParameter;
 
     /// <summary>
     /// 1 - Make the object scrolling through the screen
@@ -12,7 +13,7 @@ public class ScrollingScript : MonoBehaviour
     void Update()
     {
         Vector3 movement = new Vector3(
-      speed * -1,
+      paralaxParameter*speed * -1,
       0,
       0);
 

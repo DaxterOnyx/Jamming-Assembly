@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5302511006487103205}
   - component: {fileID: 7432284529195660372}
   m_Layer: 0
-  m_Name: ScrollingArea
+  m_Name: ScrollingAreaItems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  paralaxParameter: 1

@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Parallax scrolling script that should be assigned to a layer
 /// </summary>
-public class CorridorBackground : MonoBehaviour
+public class LoopingChildObjects : MonoBehaviour
 {
     /// 1 - Background is infinite
     /// </summary>

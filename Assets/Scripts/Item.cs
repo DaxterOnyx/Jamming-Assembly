@@ -11,6 +11,7 @@ public class Item : MonoBehaviour
         foreach (var item in slots)
         {
             item.SetState(Slot.State.LOCKED);
+            item.SpawnGrid();
 
         }
 	}
@@ -20,6 +21,7 @@ public class Item : MonoBehaviour
         foreach (var item in slots)
         {
             item.SetState(Slot.State.TAKEN);
+            item.KillGrid();
         }
     }
 

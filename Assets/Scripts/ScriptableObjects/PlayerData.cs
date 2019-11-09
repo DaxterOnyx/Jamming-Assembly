@@ -8,7 +8,9 @@ public class PlayerData : ScriptableObject
     //TODO ajouter un système de spawn des items
     public GameObject testItem;
     //TODO enlever l'item de test
-    public GameObject scrollingArea;
+    public GameObject scrollingAreaItems;
+    public GameObject scrollingAreaForeground;
+    public GameObject scrollingAreaBackground;
     public GameObject corridorBackground;
     public float initialSpeed;
     public int initialLife;

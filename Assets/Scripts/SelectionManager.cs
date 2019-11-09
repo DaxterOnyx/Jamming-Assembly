@@ -67,6 +67,6 @@ public class SelectionManager : MonoBehaviour
 
 	private void Update()
 	{
-		currentItemOver.transform.position = MouseWorldPosition;
+		//currentItemOver.transform.position = MouseWorldPosition;
 	}
 }
