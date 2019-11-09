@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CorridorItemData", menuName = "ScriptableObjects/CorridorItemData")]
 public class CorridorItemData : ScriptableObject
 {
+    public GameObject generalItem;
     public Vector3 spawnPoint;
     public List<Sprite> spriteListBag;
     public List<ItemData> itemListBag;

@@ -16,8 +16,10 @@ MonoBehaviour:
   spriteListBag:
   - {fileID: 21300000, guid: ab39cd28ca10faf42917c57d22127b4d, type: 3}
   - {fileID: 21300000, guid: 7b6b85c4cbd638c4e8e21a62d8653945, type: 3}
-  itemListBag: []
+  itemListBag:
+  - {fileID: 11400000, guid: 2764b71d7eb203a4eba5495b78b659ba, type: 2}
   bagPobability: 0.7
   spriteListChest:
   - {fileID: 21300000, guid: 12c9b4d61c3fe144d945d3cf476f42a1, type: 3}
-  itemListChest: []
+  itemListChest:
+  - {fileID: 11400000, guid: 2764b71d7eb203a4eba5495b78b659ba, type: 2}
