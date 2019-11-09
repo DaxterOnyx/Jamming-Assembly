@@ -61,14 +61,16 @@ public class InventoryManager : MonoBehaviour
 
 	public Vector2Int SlotPosition(Vector2 worldPosition, bool isLocalPosition)
 	{
-		var t = new Vector2Int(0, 0);
+		Vector2Int position;
 		if (isLocalPosition) {
-			t = new Vector2Int(Mathf.FloorToInt(worldPosition.x / delta), Mathf.FloorToInt(worldPosition.y / delta));
+			position = new Vector2Int(Mathf.FloorToInt(worldPosition.x / delta), Mathf.FloorToInt(worldPosition.y / delta));
 		} else {
-			t = new Vector2Int(Mathf.FloorToInt((worldPosition.x - transform.position.x) / delta), Mathf.FloorToInt((worldPosition.y - transform.position.y) / delta));
+			var tt = worldPosition - (Vector2)transform.position + new Vector2(delta/2, delta / 2);
+			//print(tt);
+			position =SlotPosition(tt, true);
 		}
 
-		return t;
+		return position;
 	}
 
 	public void AddEffectOnSlot(int x, int y, SlotEffect effect)

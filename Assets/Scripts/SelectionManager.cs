@@ -28,7 +28,7 @@ public class SelectionManager : MonoBehaviour
 	private Slot currentCaseOver;
 	private Item currentItemOver;
 
-	private void Start()
+	public void Init()
 	{
 		camera = FindObjectOfType<Camera>();
 	}

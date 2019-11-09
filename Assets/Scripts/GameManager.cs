@@ -23,5 +23,6 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		InventoryManager.Instance.Init();
+		SelectionManager.Instance.Init();
 	}
 }
