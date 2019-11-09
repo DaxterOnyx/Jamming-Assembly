@@ -60,6 +60,7 @@ public class Slot : MonoBehaviour {
 	{
 		print(InventoryManager.Instance.SlotPosition(SelectionManager.Instance.MouseWorldPosition,false));
 	}
+
     internal void SpawnGrid()
     {
        grid = Instantiate (gridPrefab, transform);
