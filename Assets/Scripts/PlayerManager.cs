@@ -50,7 +50,6 @@ public class PlayerManager : MonoBehaviour
 
         //Initialisation of speed
         SetSpeed(speed);
-        Instantiate(playerData.testItem, scrollingAreaI.transform);
     }
 
 
