@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SelectionManager : MonoBehaviour
 {
@@ -19,14 +18,40 @@ public class SelectionManager : MonoBehaviour
 		}
 	}
 
+	internal void SelectItem(Item item)
+	{
+		if (item != currentItemOver)
+			Debug.LogWarning("Select not current over Item");
+
+		currentItemOver = item;
+		isDragging = currentItemOver.SetInMouvement();
+	}
+
+	internal void DropItem(Item item)
+	{
+		if(!isDragging) {
+			Debug.LogWarning("Drop not in draging Item");
+			return;
+		}
+		if (item != currentItemOver) {
+			Debug.LogWarning("Drop not current over Item");
+			return;
+		}
+
+		//TODO NOT 1*1 item
+		item.SetSlot(currentSlotOver);
+	}
+
 	internal void SetItemOver(Item item)
 	{
-		currentItemOver = item;
+		if (!isDragging)
+			currentItemOver = item;
 	}
 
 	private new Camera camera;
-	private Slot currentCaseOver;
+	private Slot currentSlotOver;
 	private Item currentItemOver;
+	private bool isDragging;
 
 	public void Init()
 	{
@@ -37,6 +62,11 @@ public class SelectionManager : MonoBehaviour
 
 	internal void SetCaseOver(Slot slot)
 	{
-		currentCaseOver = slot;
+		currentSlotOver = slot;
+	}
+
+	private void Update()
+	{
+		currentItemOver.transform.position = MouseWorldPosition;
 	}
 }

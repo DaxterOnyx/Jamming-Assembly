@@ -36,6 +36,11 @@ public class Slot : MonoBehaviour {
 
     }
 
+	internal bool isBinded()
+	{
+		return state == State.LOCKED;
+	}
+
 	internal void SetItem(Item p_item)
 	{
 		item = p_item;
