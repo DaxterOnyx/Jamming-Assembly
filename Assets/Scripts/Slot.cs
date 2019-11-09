@@ -6,17 +6,17 @@ using UnityEngine;
 public class Slot : MonoBehaviour {
 	public enum State
 	{
-		LOCKED = 0,
-		FREE = 1,
+		UNAVAILABLE = 0,
+		USABLE = 1,
 		TAKEN,
-		BINDED
+		LOCKED
 	}
 
 	/// <summary>
 	/// [déconseillé] préféré SetState ou IsTaken
 	/// </summary>
 	public State state;
-	public Material[] materials; 
+	public Sprite[] sprites; 
 	private Vector2Int position;
 	private Item item;
 
@@ -29,7 +29,7 @@ public class Slot : MonoBehaviour {
 	{
 		this.state = p_state;
 
-		GetComponent<Renderer>().material = materials[(int)state];
+		GetComponent<SpriteRenderer>().sprite = sprites[(int)state];
 	}
 
 	internal void SetItem(Item p_item)
@@ -41,5 +41,14 @@ public class Slot : MonoBehaviour {
 	internal bool IsTaken()
 	{
 		return state == State.TAKEN;
+	}
+
+	private void OnMouseEnter()
+	{
+		SelectionManager.Instance.SetCaseOver(this);
+	}
+	private void OnMouseOver()
+	{
+		print(InventoryManager.Instance.SlotPosition(SelectionManager.Instance.MouseWorldPosition,false));
 	}
 }

@@ -12,6 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8afe39ab1e9804f8e3d07ba8224568, type: 3}
   m_Name: InventoryData
   m_EditorClassIdentifier: 
-  Width: 0
-  Heigth: 0
-  CasePrefab: {fileID: 0}
+  Width: 11
+  Heigth: 11
+  Gap: 5
+  SlotSize: 16
+  SlotPrefab: {fileID: 209627780598074628, guid: 95633712b2cd3d04d9335de1d46abecd,
+    type: 3}
+  IsFree:
+  - {x: 2, y: 2}
+  - {x: 2, y: 3}
+  - {x: 3, y: 2}
+  - {x: 3, y: 3}
+  - {x: 2, y: 7}
+  - {x: 2, y: 8}
+  - {x: 3, y: 7}
+  - {x: 3, y: 8}
+  - {x: 7, y: 2}
+  - {x: 7, y: 3}
+  - {x: 8, y: 2}
+  - {x: 8, y: 3}
+  - {x: 7, y: 7}
+  - {x: 7, y: 8}
+  - {x: 8, y: 7}
+  - {x: 8, y: 8}
