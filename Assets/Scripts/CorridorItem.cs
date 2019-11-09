@@ -4,23 +4,41 @@ using UnityEngine;
 
 public class CorridorItem : MonoBehaviour
 {
-    public CorridorItemData data;
-
-    private List<Sprite> possibleSprite;
-    private List<Item> possibleItem;
-
-    private void Start()
+    public enum typeEnum
     {
-        possibleSprite = data.spriteList;
-        possibleItem = data.itemList;
+        BAG = 0,
+        CHEST = 1
     }
 
-    internal GameObject SpawnItem()
+    private typeEnum type;
+    public CorridorItemData data;
+
+    public void Init()
     {
-        GameObject corridorItem = new GameObject();
-        corridorItem.AddComponent<CorridorItem>();
-        corridorItem.AddComponent<SpriteRenderer>();
-        corridorItem.GetComponent<SpriteRenderer>().sprite = possibleSprite[Mathf.FloorToInt(UnityEngine.Random.Range(0, possibleSprite.Count))];
-        return corridorItem;
+        transform.position = data.spawnPoint;
+
+        // Randomisation de l'item
+        if (UnityEngine.Random.value > data.bagPobability)
+        {
+            type = typeEnum.CHEST;
+        }
+        else
+        {
+            type = typeEnum.BAG;
+        }
+
+        switch (type)
+        {
+            case typeEnum.BAG:
+                this.GetComponent<SpriteRenderer>().sprite = 
+                    data.spriteListBag[Mathf.FloorToInt(UnityEngine.Random.Range(0, data.spriteListBag.Count))];
+                break;
+            case typeEnum.CHEST:
+                this.GetComponent<SpriteRenderer>().sprite =
+                    data.spriteListChest[Mathf.FloorToInt(UnityEngine.Random.Range(0, data.spriteListChest.Count))];
+                break;
+            default:
+                break;
+        }
     }
 }
