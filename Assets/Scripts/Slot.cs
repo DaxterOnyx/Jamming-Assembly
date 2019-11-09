@@ -61,9 +61,15 @@ public class Slot : MonoBehaviour {
 	{
 		SelectionManager.Instance.SetCaseOver(this);
 	}
+
+	private void OnMouseExit()
+	{
+		SelectionManager.Instance.SetCaseOver(null);
+
+	}
 	private void OnMouseOver()
 	{
-		print(InventoryManager.Instance.SlotPosition(SelectionManager.Instance.MouseWorldPosition,false));
+		//print(InventoryManager.Instance.SlotPosition(SelectionManager.Instance.MouseWorldPosition,false));
 	}
 
     internal void SpawnGrid()

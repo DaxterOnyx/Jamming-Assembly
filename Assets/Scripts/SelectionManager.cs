@@ -29,17 +29,36 @@ public class SelectionManager : MonoBehaviour
 
 	internal void DropItem(Item item)
 	{
-		if(!isDragging) {
+		if (!isDragging) {
 			Debug.LogWarning("Drop not in draging Item");
+			StopDragging();
+
 			return;
 		}
 		if (item != currentItemOver) {
 			Debug.LogWarning("Drop not current over Item");
+			StopDragging();
+
 			return;
 		}
+		if (currentSlotOver == null) {
+			Debug.LogWarning("Drop in void");
+			StopDragging();
 
+			return;
+		}
+		//TODO LOOK THE TRUE SLOT UNDER THIS POSITION
 		//TODO NOT 1*1 item
-		item.SetSlot(currentSlotOver);
+		item.SetSlot(new Slot[] { currentSlotOver });
+		StopDragging();
+	}
+
+	private void StopDragging()
+	{
+		isDragging = false;
+		currentSlotOver = null;
+		currentItemOver.ResetMouvement();
+		currentItemOver = null;
 	}
 
 	internal void SetItemOver(Item item)
@@ -62,11 +81,13 @@ public class SelectionManager : MonoBehaviour
 
 	internal void SetCaseOver(Slot slot)
 	{
-		currentSlotOver = slot;
+		if (isDragging)
+			currentSlotOver = slot;
 	}
 
 	private void Update()
 	{
-		//currentItemOver.transform.position = MouseWorldPosition;
+		if (isDragging)
+			currentItemOver.transform.position = MouseWorldPosition;
 	}
 }

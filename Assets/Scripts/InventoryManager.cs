@@ -67,7 +67,7 @@ public class InventoryManager : MonoBehaviour
 		} else {
 			var tt = worldPosition - (Vector2)transform.position + new Vector2(delta/2, delta / 2);
 			//print(tt);
-			position =SlotPosition(tt, true);
+			position =	SlotPosition(tt, true);
 		}
 
 		return position;

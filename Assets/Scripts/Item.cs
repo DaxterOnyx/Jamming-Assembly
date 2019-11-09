@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using UnityEngine;
 
 public class Item : MonoBehaviour
@@ -37,9 +38,13 @@ public class Item : MonoBehaviour
 
 	internal bool SetInMouvement()
 	{
-		var realy = slots[0].isBinded();
-		if (realy)
+		var realy = true;
+		//var realy = slots[0].isBinded();
+		if (realy) {
+
+			GetComponent<Collider2D>().enabled = false;
 			mini = false;
+		}
 		return realy;
 	}
 
@@ -48,9 +53,33 @@ public class Item : MonoBehaviour
 		SelectionManager.Instance.DropItem(this);
 	}
 
-	internal void SetSlot(Slot newSlot)
+	internal void SetSlot(Slot[] newSlots)
 	{
-		transform.position = newSlot.transform.position;
+		slots = newSlots;
+
+		GetComponent<Collider2D>().enabled = true;
+		RecalculPosition();
+
+		//transform.position = newSlot.transform.position;
 		//TODO CALL EFFECT
+	}
+
+	private void RecalculPosition()
+	{
+		transform.DOMove(CenterPosition(), 0.1f);
+	}
+
+	private Vector3 CenterPosition()
+	{
+		Vector3 position = new Vector2();
+		foreach (var item in slots) {
+			position += item.transform.position;
+		}
+		return position / slots.Length;
+	}
+
+	internal void ResetMouvement()
+	{
+		SetSlot(slots);
 	}
 }
