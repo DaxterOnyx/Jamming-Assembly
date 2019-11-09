@@ -63,7 +63,7 @@ public class SelectionManager : MonoBehaviour
 		//TODO NOT 1*1 item
 
 
-		item.SetSlot(Slot.CreateArray(currentSlotOver));
+		item.SetSlot(currentSlotOver);
 		StopDragging();
 	}
 

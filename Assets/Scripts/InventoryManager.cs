@@ -47,6 +47,11 @@ public class InventoryManager : MonoBehaviour
 
 	internal void AddItemOnRandSlot(Item item)
 	{
+		SearchEmptySpace(item.size);
+	}
+
+	private void SearchEmptySpace(Vector2Int size)
+	{
 		throw new NotImplementedException();
 	}
 
