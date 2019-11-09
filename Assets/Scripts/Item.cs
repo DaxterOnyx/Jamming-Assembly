@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-	ItemData itemData;
+	public ItemData itemData;
 	Slot[] slots;
-	bool mini;
+	//TODO CEST MOCHE
+	bool IsBig { get { return itemData.size != Vector2Int.one; } }
+	bool isMini;
 	internal void Lock()
 	{
         foreach (var item in slots)
@@ -41,11 +43,24 @@ public class Item : MonoBehaviour
 		var realy = true;
 		//var realy = slots[0].isBinded();
 		if (realy) {
-
+			if (IsBig)
+				Rise();
 			GetComponent<Collider2D>().enabled = false;
-			mini = false;
+			isMini = false;
 		}
 		return realy;
+	}
+
+	internal void Shrink()
+	{
+		isMini = true;
+		GetComponent<SpriteRenderer>().sprite = itemData.miniSprite;
+	}
+
+	internal void Rise()
+	{
+		isMini = false;
+		GetComponent<SpriteRenderer>().sprite = itemData.realSprite;
 	}
 
 	private void OnMouseUp()
@@ -56,7 +71,9 @@ public class Item : MonoBehaviour
 	internal void SetSlot(Slot[] newSlots)
 	{
 		slots = newSlots;
-
+		foreach (var slot in slots) {
+			slot.SetItem(this,true);
+		}
 		GetComponent<Collider2D>().enabled = true;
 		RecalculPosition();
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LockObject : SlotEffect
+public class LockObjectEffect : SlotEffect
 {
     internal override void ApplyEffect(Slot slot)
     {

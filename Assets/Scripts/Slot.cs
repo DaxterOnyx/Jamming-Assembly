@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Slot : MonoBehaviour {
+public class Slot : MonoBehaviour
+{
 	public enum State
 	{
 		UNAVAILABLE = 0,
@@ -16,12 +14,12 @@ public class Slot : MonoBehaviour {
 	/// [déconseillé] préféré SetState ou IsTaken
 	/// </summary>
 	public State state;
-	public Sprite[] sprites; 
+	public Sprite[] sprites;
 	private Vector2Int position;
 	private Item item;
-    public GameObject gridPrefab;
-    private GameObject grid;
-    
+	public GameObject gridPrefab;
+	private GameObject grid;
+
 	internal void SetPosition(int x, int y)
 	{
 		position = new Vector2Int(x, y);
@@ -32,30 +30,40 @@ public class Slot : MonoBehaviour {
 		this.state = p_state;
 
 		GetComponent<SpriteRenderer>().sprite = sprites[(int)state];
-
-
-    }
-
-	internal bool isBinded()
-	{
-		return state == State.LOCKED;
 	}
 
-	internal void SetItem(Item p_item)
+	internal bool isBinded
+	{
+		get {
+			return state == State.LOCKED;
+		}
+	}
+
+	internal void SetItem(Item p_item, bool changeState)
 	{
 		item = p_item;
-		SetState(State.TAKEN);
+		if (changeState)
+			SetState(State.TAKEN);
 	}
 
-    internal Item GetItem()
-    {
-        return item;
-    }
-
-	internal bool IsTaken()
+	internal static Slot[] CreateArray(Slot slot)
 	{
-		return state == State.TAKEN;
+		return new Slot[] { slot };
 	}
+
+	internal Item GetItem()
+	{
+		return item;
+	}
+
+	internal bool IsTaken
+	{
+		get {
+			return state == State.TAKEN;
+		}
+	}
+
+	public bool IsUnvailable { get { return state == State.UNAVAILABLE; }  }
 
 	private void OnMouseEnter()
 	{
@@ -72,15 +80,21 @@ public class Slot : MonoBehaviour {
 		//print(InventoryManager.Instance.SlotPosition(SelectionManager.Instance.MouseWorldPosition,false));
 	}
 
-    internal void SpawnGrid()
-    {
-       grid = Instantiate (gridPrefab, transform);
-    }
-    internal void KillGrid()
-    {
-        if (grid != null)
-        {
-            Destroy(grid);
-        }
-    }
+	/// <summary>
+	/// Show chain on item
+	/// </summary>
+	internal void SpawnGrid()
+	{
+		grid = Instantiate(gridPrefab, transform);
+	}
+
+	/// <summary>
+	/// Hide chain on item
+	/// </summary>
+	internal void KillGrid()
+	{
+		if (grid != null) {
+			Destroy(grid);
+		}
+	}
 }
