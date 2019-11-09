@@ -58,6 +58,6 @@ public class CorridorItem : MonoBehaviour
             default:
                 break;
         }
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 }
