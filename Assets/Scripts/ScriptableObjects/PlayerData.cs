@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerData : ScriptableObject
 {
     //TODO ajouter un système de spawn des items
-    public GameObject testItem;
+    public GameObject player;
     //TODO enlever l'item de test
     public GameObject scrollingAreaItems;
     public GameObject scrollingAreaForeground;

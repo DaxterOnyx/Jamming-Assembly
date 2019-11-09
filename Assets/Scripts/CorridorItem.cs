@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CorridorItem : MonoBehaviour
 {
@@ -30,7 +28,7 @@ public class CorridorItem : MonoBehaviour
         switch (type)
         {
             case typeEnum.BAG:
-                this.GetComponent<SpriteRenderer>().sprite = 
+                this.GetComponent<SpriteRenderer>().sprite =
                     data.spriteListBag[Mathf.FloorToInt(UnityEngine.Random.Range(0, data.spriteListBag.Count))];
                 break;
             case typeEnum.CHEST:
@@ -40,5 +38,26 @@ public class CorridorItem : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Oui");
+        switch (type)
+        {
+            case typeEnum.BAG:
+                GameObject itemBag = Instantiate(data.generalItem);
+                itemBag.GetComponent<Item>().Init(data.itemListBag[Mathf.FloorToInt(UnityEngine.Random.Range(0, data.itemListBag.Count))]);
+                DropItemManager.Instance.AddItem(itemBag.GetComponent<Item>());
+                break;
+            case typeEnum.CHEST:
+                GameObject itemChest = Instantiate(data.generalItem);
+                itemChest.GetComponent<Item>().Init(data.itemListChest[Mathf.FloorToInt(UnityEngine.Random.Range(0, data.itemListChest.Count))]);
+                DropItemManager.Instance.AddItem(itemChest.GetComponent<Item>());
+                break;
+            default:
+                break;
+        }
+        Destroy(this);
     }
 }

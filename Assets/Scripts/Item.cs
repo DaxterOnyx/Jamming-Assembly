@@ -12,8 +12,9 @@ public class Item : MonoBehaviour
 	bool IsBig { get { return itemData.size != Vector2Int.one; } }
 	bool isMini;
 
-	public void Init()
+	public void Init(ItemData data)
 	{
+        itemData = data;
 		size = itemData.size;
 		//TODO CHOOSE EFFECT IN TAB OF ITEM DATA
 	}
