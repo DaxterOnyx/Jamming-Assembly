@@ -6,12 +6,9 @@ public class ScrollingScript : MonoBehaviour
 {
     public float speed;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    /// <summary>
+    /// 1 - Make the object scrolling through the screen
+    /// </summary>
     void Update()
     {
         Vector3 movement = new Vector3(

@@ -7,14 +7,6 @@ using UnityEngine;
 /// </summary>
 public class CorridorBackground : MonoBehaviour
 {
-    /// <summary>
-    /// Scrolling speed
-    /// </summary>
-
-    /// <summary>
-    /// Moving direction
-    /// </summary>
-    /// <summary>
     /// 1 - Background is infinite
     /// </summary>
     public bool isLooping = false;
