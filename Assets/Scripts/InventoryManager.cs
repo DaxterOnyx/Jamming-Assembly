@@ -18,25 +18,37 @@ public class InventoryManager : MonoBehaviour
 		}
 	}
 
-	private InventoryData inventoryData;
+
+	public InventoryData inventoryData;
 
 	private Slot[,] inventory;
 
-	private void Start()
+	internal void Init()
 	{
+		if (inventoryData == null)
+			inventoryData = InventoryData.CreateInstance<InventoryData>();
+
 		inventory = new Slot[inventoryData.Width, inventoryData.Heigth];
 		for (int x = 0; x < inventoryData.Width; x++) {
 			for (int y = 0; y < inventoryData.Heigth; y++) {
-				//TODO add initial free and locked Slot
-				var slot = Instantiate(inventoryData.SlotPrefab, SlotPosition(x, y), Quaternion.identity, transform).GetComponent<Slot>();
-				slot.SetPosition(x, y);
+				Slot slot = CreateSlot(x, y, false);
 				inventory[x, y] = slot;
 			}
 		}
 	}
 
-	private static Vector3 SlotPosition(int x, int y)
+	private Slot CreateSlot(int x, int y, bool locked)
 	{
+		//TODO add initial free and locked Slot
+		var slot = Instantiate(inventoryData.SlotPrefab, SlotWorldPosition(x, y), Quaternion.identity, transform).GetComponent<Slot>();
+		slot.SetPosition(x, y);
+		slot.SetState(locked ? Slot.State.LOCKED:Slot.State.FREE);
+		return slot;
+	}
+
+	private static Vector3 SlotWorldPosition(int x, int y)
+	{
+		//TODO
 		return new Vector3(x, y, 0);
 	}
 
