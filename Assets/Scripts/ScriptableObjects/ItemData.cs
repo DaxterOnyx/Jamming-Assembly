@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-[CreateAssetMenu(fileName = "InventoryData", menuName = "ScriptableObjects/InventoryData")]
+[CreateAssetMenu(fileName = "ItemData", menuName = "ScriptableObjects/ItemData")]
 public class ItemData : ScriptableObject
 {
 	ItemData genericItemData;

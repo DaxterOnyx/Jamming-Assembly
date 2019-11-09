@@ -8,13 +8,20 @@ public class Item : MonoBehaviour {
 	bool mini;
 	internal void Lock()
 	{
+        foreach (var item in slots)
+        {
+            item.SetState(Slot.State.LOCKED);
 
+        }
 	}
 
 	internal void Unlock()
 	{
-
-	}
+        foreach (var item in slots)
+        {
+            item.SetState(Slot.State.TAKEN);
+        }
+    }
 
 	private void OnMouseEnter()
 	{

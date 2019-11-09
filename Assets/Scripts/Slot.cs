@@ -19,7 +19,9 @@ public class Slot : MonoBehaviour {
 	public Sprite[] sprites; 
 	private Vector2Int position;
 	private Item item;
-
+    public GameObject gridPrefab;
+    private GameObject grid;
+    
 	internal void SetPosition(int x, int y)
 	{
 		position = new Vector2Int(x, y);
@@ -30,14 +32,20 @@ public class Slot : MonoBehaviour {
 		this.state = p_state;
 
 		GetComponent<SpriteRenderer>().sprite = sprites[(int)state];
-		
-	}
+
+
+    }
 
 	internal void SetItem(Item p_item)
 	{
 		item = p_item;
 		SetState(State.TAKEN);
 	}
+
+    internal Item GetItem()
+    {
+        return item;
+    }
 
 	internal bool IsTaken()
 	{
@@ -48,4 +56,19 @@ public class Slot : MonoBehaviour {
 	{
 		SelectionManager.Instance.SetCaseOver(this);
 	}
+	private void OnMouseOver()
+	{
+		print(InventoryManager.Instance.SlotPosition(SelectionManager.Instance.MouseWorldPosition,false));
+	}
+    internal void SpawnGrid()
+    {
+       grid = Instantiate (gridPrefab, transform);
+    }
+    internal void KillGrid()
+    {
+        if (grid != null)
+        {
+            Destroy(grid);
+        }
+    }
 }
