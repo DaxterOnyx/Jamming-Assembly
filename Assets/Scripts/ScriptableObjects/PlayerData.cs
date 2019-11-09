@@ -11,7 +11,7 @@ public class PlayerData : ScriptableObject
     public GameObject scrollingAreaItems;
     public GameObject scrollingAreaForeground;
     public GameObject scrollingAreaBackground;
-    public GameObject corridorBackground;
+    public GameObject corridorItem;
     public float initialSpeed;
     public int initialLife;
     public int initialAtk;

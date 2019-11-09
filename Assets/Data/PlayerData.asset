@@ -20,7 +20,7 @@ MonoBehaviour:
     type: 3}
   scrollingAreaBackground: {fileID: 9074962045589412588, guid: 19e40132d26fd924bb0ba0a30170f1f7,
     type: 3}
-  corridorBackground: {fileID: 3398744597582865136, guid: 56dd6eb205c6bca48b2a5199dec515e4,
+  corridorItem: {fileID: 204381386840582886, guid: 3990738d0b5c4fe46932bea5ba02a55a,
     type: 3}
   initialSpeed: 100
   initialLife: 3
