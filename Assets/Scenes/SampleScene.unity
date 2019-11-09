@@ -650,6 +650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f33092bd0c9a6874489d8f78ab9f63e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  infoBubbleInstance: {fileID: 190820069}
 --- !u!4 &762074294
 Transform:
   m_ObjectHideFlags: 0
@@ -930,12 +931,12 @@ PrefabInstance:
     - target: {fileID: 4787737876409913997, guid: eaf98cada90bc4b4ea8e5654395d2db4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 194.6
+      value: 194
       objectReference: {fileID: 0}
     - target: {fileID: 4787737876409913997, guid: eaf98cada90bc4b4ea8e5654395d2db4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -61.6
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 4787737876409913997, guid: eaf98cada90bc4b4ea8e5654395d2db4,
         type: 3}
@@ -982,12 +983,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3166105906524294148, guid: eaf98cada90bc4b4ea8e5654395d2db4,
-        type: 3}
-      propertyPath: itemData
-      value: 
-      objectReference: {fileID: 11400000, guid: 2764b71d7eb203a4eba5495b78b659ba,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaf98cada90bc4b4ea8e5654395d2db4, type: 3}
 --- !u!1 &1565217658

@@ -9,9 +9,7 @@ public class DropItemManager : MonoBehaviour
 			if (m_instance == null)
 				m_instance = FindObjectOfType<DropItemManager>();
 			if (m_instance == null) {
-				GameObject newInstance = Instantiate(new GameObject());
-				newInstance.name = "DropItemManager (Singleton)";
-				m_instance = newInstance.AddComponent<DropItemManager>();
+				Debug.LogError("Singleton DropItemManager not found");
 			}
 
 			return m_instance;

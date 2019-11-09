@@ -13,13 +13,11 @@ public class PlayerManager : MonoBehaviour
             {
                 m_instance = FindObjectOfType<PlayerManager>();
             }
-            if (m_instance == null)
-            {
-                GameObject newInstance = Instantiate(new GameObject());
-                newInstance.name = "Player (Singleton)";
-                m_instance = newInstance.AddComponent<PlayerManager>();
-            }
-            return m_instance;
+            if (m_instance == null) {
+				Debug.LogError("Singleton PlayerManager not found");
+
+			}
+			return m_instance;
         }
     }
     private List<GameObject> scrollingAreaList;

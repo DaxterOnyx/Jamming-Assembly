@@ -20,10 +20,13 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	public InfoBubble infoBubbleInstance;
+
 	void Start()
 	{
 		InventoryManager.Instance.Init();
 		SelectionManager.Instance.Init();
 		DropItemManager.Instance.Init();
+		infoBubbleInstance.Init();
 	}
 }

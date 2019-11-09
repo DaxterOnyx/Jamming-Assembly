@@ -10,9 +10,7 @@ public class InventoryManager : MonoBehaviour
 			if (m_instance == null)
 				m_instance = FindObjectOfType<InventoryManager>();
 			if (m_instance == null) {
-				GameObject newInstance = Instantiate(new GameObject());
-				newInstance.name = "InventoryManager (Singleton)";
-				m_instance = newInstance.AddComponent<InventoryManager>();
+				Debug.LogError("Singleton DropItemManager not found");
 			}
 
 			return m_instance;

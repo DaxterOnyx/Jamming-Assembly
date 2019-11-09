@@ -137,6 +137,12 @@ public class Item : MonoBehaviour
 	private void OnMouseEnter()
 	{
 		SelectionManager.Instance.SetItemOver(this);
+		InfoBubble.Instance.Show(this);
+	}
+
+	private void OnMouseExit()
+	{
+		InfoBubble.Instance.Hide();
 	}
 
 	private void OnMouseDown()
