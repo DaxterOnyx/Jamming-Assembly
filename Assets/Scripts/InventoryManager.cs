@@ -67,7 +67,7 @@ public class InventoryManager : MonoBehaviour
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
 
-				slots[i * width + j] = GetSlot(x + i, y + j);
+				slots[i * (width-1) + j] = GetSlot(x + i, y + j);
 			}
 		}
 

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using DG.Tweening;
 using UnityEngine;
 
 public class StuffManager : MonoBehaviour
@@ -34,5 +32,16 @@ public class StuffManager : MonoBehaviour
 
 	internal void Init()
 	{
+	}
+
+	private void Update()
+	{
+		var deleteItem = BinSlot.GetItem();
+		if (deleteItem != null) {
+			BinSlot.RemoveItem();
+			var deletedGameObject = deleteItem.gameObject;
+			deleteItem.transform.DOMove(deleteItem.transform.position + new Vector3(0, -100f, 0), 0.5f); ;
+			Destroy(deletedGameObject, 1);
+		}
 	}
 }

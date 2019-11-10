@@ -29,19 +29,17 @@ public class SelectionManager : MonoBehaviour
         isDragging = currentItemOver.SetInMouvement();
     }
 
-    internal void DropItem(Item item)
-    {
-        if (!isDragging)
-        {
-            Debug.LogWarning("Drop not in draging Item");
-            StopDragging();
+	internal void DropItem(Item item)
+	{
+		if (!isDragging) {
+			Debug.LogWarning("Drop not in draging Mode");
+			StopDragging();
 
-            return;
-        }
-        if (item != currentItemOver)
-        {
-            Debug.LogWarning("Drop not current over Item");
-            StopDragging();
+			return;
+		}
+		if (item != currentItemOver) {
+			Debug.LogWarning("Drop on other Item");
+			StopDragging();
 
             return;
         }
@@ -57,26 +55,28 @@ public class SelectionManager : MonoBehaviour
             Debug.LogWarning("Slot is Unvailable");
             StopDragging();
 
-            return;
-        }
-        if (!currentSlotOver.CanAcceptItem(item.size))
-        {
-            Debug.LogWarning("item is to big");
-            StopDragging();
+			return;
+		}
+		if (currentSlotOver.IsSpecial)
+			item.EndDraggingOnSpecialSlot(currentSlotOver);
+		else {
 
-            return;
-        }
-        if (!currentSlotOver.IsUsable)
-        {
-            Debug.LogWarning("Slot already taken");
-            StopDragging();
+			if (!currentSlotOver.CanAcceptItem(item.size)) {
+				Debug.LogWarning("item is to big");
+				StopDragging();
 
-            return;
-        }
+				return;
+			}
+			if (!currentSlotOver.IsUsable) {
+				Debug.LogWarning("Slot already taken");
+				StopDragging();
 
-        item.SetSlots(InventoryManager.Instance.GetSlots(currentSlotOver.GetPosition().x, currentSlotOver.GetPosition().y, item.size));
-        StopDragging();
-    }
+				return;
+			}
+			item.EndDraggingInInventory(InventoryManager.Instance.GetSlots(currentSlotOver.GetPosition().x, currentSlotOver.GetPosition().y, item.size));
+		}
+		StopDragging();
+	}
 
     private void StopDragging()
     {
