@@ -23,7 +23,7 @@ public class TutoManager : MonoBehaviour
 			if (index < gameObjects.Length)
 				gameObjects[index].SetActive(true);
 		}
-		if (index > gameObjects.Length) {
+		if (index == gameObjects.Length) {
 			Time.timeScale = 1;
 
 			stop = true;
