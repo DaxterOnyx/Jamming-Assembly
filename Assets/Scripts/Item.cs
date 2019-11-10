@@ -67,7 +67,7 @@ public class Item : MonoBehaviour
                 {
                     do
                     {
-                        effectSlot = new Vector2Int(UnityEngine.Random.Range(0, 6), UnityEngine.Random.Range(0, 6));
+                        effectSlot = new Vector2Int(UnityEngine.Random.Range(0, 5), UnityEngine.Random.Range(0, 5));
                     } while (usedSlots.Contains(effectSlot));
                     usedSlots.Add(effectSlot);
                     temp.slot = effectSlot;
@@ -190,7 +190,12 @@ public class Item : MonoBehaviour
         isDraging = false;
         SetSlots(newSlots);
         GetComponent<Collider2D>().enabled = true;
-        //TODO CALL EFFECT
+        foreach (SlotEffect effect in effectList)
+        {
+            Vector2Int vector = this.slots[0].GetPosition() + effect.slot - new Vector2Int(2,2);
+            effect.ApplyEffect(InventoryManager.Instance.GetSlot(vector.x,vector.y));
+            Destroy(effect);
+        }
 
     }
 
