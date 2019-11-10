@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{88f68644-1b54-4d17-96ac-ba14481d7a2d}">
+		<property name="assetPath">
+			<value>blupinventaire2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.10376417233560091</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{dc0ae609-3da7-40e6-acba-b19451f17f45}</destination>
+		</relationship>
+	</object>
+</objects>
