@@ -19,7 +19,7 @@ public class Slot : MonoBehaviour
 	public Sprite[] sprites;
 	[SerializeField]
 	private Vector2Int position;
-	private Item item;
+	private Item item = null;
 	[SerializeField]
 	private GameObject gridPrefab;
 	private GameObject grid;

@@ -23,6 +23,7 @@ public class Item : MonoBehaviour
         int indice;
         EffectData effectData;
         List<Vector2Int> usedSlots = new List<Vector2Int>();
+        usedSlots.Add(new Vector2Int(2, 2));
         effectList = new List<Effect>();
         itemData = data;
         size = itemData.size;
