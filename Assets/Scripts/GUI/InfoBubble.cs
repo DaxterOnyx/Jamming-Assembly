@@ -48,7 +48,7 @@ public class InfoBubble : MonoBehaviour
 	public void Hide()
 	{
 		gameObject.SetActive(false);
-        GetComponentInChildren<UIItemGrid>()?.DestroyCells();
+        GetComponentInChildren<UIItemGrid>()?.RestartCell();
     }
 
 	

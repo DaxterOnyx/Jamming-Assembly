@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "ItemData", menuName = "ScriptableObjects/ItemData",order = -10)]
+[CreateAssetMenu(fileName = "ItemData", menuName = "ScriptableObjects/ItemData", order = -10)]
 public class ItemData : ScriptableObject
 {
 	public ItemData genericItemData;
@@ -10,15 +10,26 @@ public class ItemData : ScriptableObject
 	private Effect[] effectsUniqueAccepted;
 	[SerializeField]
 	private Effect[] effectsMandatory;
-	public Vector2Int size = new Vector2Int(1,1);
+	public Vector2Int size = new Vector2Int(1, 1);
 	public Sprite miniSprite;
 	public Sprite realSprite;
-
+	[SerializeField]
+	private Type _type;
+	public enum Type
+	{
+		Undefinded = 0,
+		Helmet,
+		Accesory,
+		Weapon,
+		Shield,
+		Boot,
+		Consumable
+	}
 	public Effect[] EffectsAccepted
 	{
 		get {
 			var effects = new List<Effect>(effectsAccepted);
-			effects.AddRange(genericItemData.EffectsAccepted);
+			effects.AddRange(genericItemData?.EffectsAccepted);
 			return effects.ToArray();
 		}
 	}
@@ -27,7 +38,7 @@ public class ItemData : ScriptableObject
 	{
 		get {
 			var effects = new List<Effect>(effectsUniqueAccepted);
-			effects.AddRange(genericItemData.EffectsUniqueAccepted);
+			effects.AddRange(genericItemData?.EffectsUniqueAccepted);
 			return effects.ToArray();
 		}
 	}
@@ -36,8 +47,18 @@ public class ItemData : ScriptableObject
 	{
 		get {
 			var effects = new List<Effect>(effectsMandatory);
-			effects.AddRange(genericItemData.EffectsMandatory);
+			effects.AddRange(genericItemData?.EffectsMandatory);
 			return effects.ToArray();
+		}
+	}
+
+	public Type type
+	{
+		get {
+			if (_type == Type.Undefinded && genericItemData != null)
+				return genericItemData.type;
+			else
+				return _type;
 		}
 	}
 

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Slot : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class Slot : MonoBehaviour
 	private Item item;
 	public GameObject gridPrefab;
 	private GameObject grid;
-	public bool CanAddItemSpecial = true;
+	public bool CanAddItemSpecial;
+	public bool isStuffSlot = false;
 
 	internal bool IsUnvailable { get { return state == State.UNAVAILABLE; } }
 	internal bool IsBinded { get { return state == State.LOCKED; } }
@@ -57,15 +59,20 @@ public class Slot : MonoBehaviour
 		return item;
 	}
 
+	internal bool CanAcceptStuff(Item item)
+	{
+		return this == StuffManager.Instance.GetSlot(item.itemData.type,0) || this == StuffManager.Instance.GetSlot(item.itemData.type, 1);
+	}
+
 	private void OnMouseEnter()
 	{
-		if (CanAddItemSpecial && IsSpecial)
+		if (CanAddItemSpecial || !IsSpecial)
 			SelectionManager.Instance.SetCaseOver(this);
 	}
 
 	private void OnMouseExit()
 	{
-		if (CanAddItemSpecial && IsSpecial)
+		if (CanAddItemSpecial || !IsSpecial)
 			SelectionManager.Instance.SetCaseOver(null);
 	}
 

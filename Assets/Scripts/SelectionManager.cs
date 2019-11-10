@@ -2,32 +2,30 @@
 
 public class SelectionManager : MonoBehaviour
 {
-    private static SelectionManager m_instance;
-    public static SelectionManager Instance
-    {
-        get
-        {
-            if (m_instance == null)
-                m_instance = FindObjectOfType<SelectionManager>();
-            if (m_instance == null)
-            {
-                GameObject newInstance = Instantiate(new GameObject());
-                newInstance.name = "SelectionManager (Singleton)";
-                m_instance = newInstance.AddComponent<SelectionManager>();
-            }
+	private static SelectionManager m_instance;
+	public static SelectionManager Instance
+	{
+		get {
+			if (m_instance == null)
+				m_instance = FindObjectOfType<SelectionManager>();
+			if (m_instance == null) {
+				GameObject newInstance = Instantiate(new GameObject());
+				newInstance.name = "SelectionManager (Singleton)";
+				m_instance = newInstance.AddComponent<SelectionManager>();
+			}
 
-            return m_instance;
-        }
-    }
+			return m_instance;
+		}
+	}
 
-    internal void SelectItem(Item item)
-    {
-        if (item != currentItemOver)
-            Debug.LogWarning("Select not current over Item");
+	internal void SelectItem(Item item)
+	{
+		if (item != currentItemOver)
+			Debug.LogWarning("Select not current over Item");
 
-        currentItemOver = item;
-        isDragging = currentItemOver.SetInMouvement();
-    }
+		currentItemOver = item;
+		isDragging = currentItemOver.SetInMouvement();
+	}
 
 	internal void DropItem(Item item)
 	{
@@ -37,29 +35,25 @@ public class SelectionManager : MonoBehaviour
 
 			return;
 		}
-		if (item != currentItemOver) {
-			Debug.LogWarning("Drop on other Item");
+		if (currentSlotOver == null) {
+			Debug.LogWarning("Drop in void");
 			StopDragging();
-
-            return;
-        }
-        if (currentSlotOver == null)
-        {
-            Debug.LogWarning("Drop in void");
-            StopDragging();
-
-            return;
-        }
-        if (currentSlotOver.IsUnvailable)
-        {
-            Debug.LogWarning("Slot is Unvailable");
-            StopDragging();
 
 			return;
 		}
-		if (currentSlotOver.IsSpecial)
-			item.EndDraggingOnSpecialSlot(currentSlotOver);
-		else {
+		if (currentSlotOver.IsUnvailable) {
+			Debug.LogWarning("Slot is Unvailable");
+			StopDragging();
+
+			return;
+		}
+		if (currentSlotOver.IsSpecial) {
+			if (currentSlotOver.isStuffSlot) {
+				if (currentSlotOver.CanAcceptStuff(item))
+					item.EndDraggingOnSpecialSlot(currentSlotOver);
+			} else
+				item.EndDraggingOnSpecialSlot(currentSlotOver);
+		} else {
 
 			if (!currentSlotOver.CanAcceptItem(item.size)) {
 				Debug.LogWarning("item is to big");
@@ -78,55 +72,54 @@ public class SelectionManager : MonoBehaviour
 		StopDragging();
 	}
 
-    private void StopDragging()
-    {
-        isDragging = false;
-        currentSlotOver = null;
-        currentItemOver.ResetMouvement();
-        currentItemOver = null;
-    }
+	private void StopDragging()
+	{
+		currentItemOver.ResetMouvement();
+		currentItemOver = null;
+		currentSlotOver = null;
+		isDragging = false;
+	}
 
-    internal void SetItemOver(Item item)
-    {
-        if (!isDragging)
-            currentItemOver = item;
-    }
+	internal void SetItemOver(Item item)
+	{
+		if (!isDragging)
+			currentItemOver = item;
+	}
 
-    private new Camera camera;
-    private Slot currentSlotOver;
-    private Item currentItemOver;
-    public bool _isDragging;
-    
-
-    public bool isDragging
-    {
-        get { return _isDragging; }
-        set
-        {
-            _isDragging = value;
-
-            fmodManager.Instance.OnChangeDragging();
-
-        }
-    }
+	private new Camera camera;
+	private Slot currentSlotOver;
+	private Item currentItemOver;
+	public bool _isDragging;
 
 
-    public void Init()
-    {
-        camera = FindObjectOfType<Camera>();
-    }
+	public bool isDragging
+	{
+		get { return _isDragging; }
+		set {
+			_isDragging = value;
 
-    public Vector2 MouseWorldPosition { get { return camera.ScreenToWorldPoint(Input.mousePosition); } }
+			fmodManager.Instance.OnChangeDragging();
 
-    internal void SetCaseOver(Slot slot)
-    {
-        if (isDragging)
-            currentSlotOver = slot;
-    }
+		}
+	}
 
-    private void Update()
-    {
-        if (isDragging)
-            currentItemOver.transform.position = MouseWorldPosition;
-    }
+
+	public void Init()
+	{
+		camera = FindObjectOfType<Camera>();
+	}
+
+	public Vector2 MouseWorldPosition { get { return camera.ScreenToWorldPoint(Input.mousePosition); } }
+
+	internal void SetCaseOver(Slot slot)
+	{
+		if (isDragging)
+			currentSlotOver = slot;
+	}
+
+	private void Update()
+	{
+		if (isDragging)
+			currentItemOver.transform.position = MouseWorldPosition;
+	}
 }
