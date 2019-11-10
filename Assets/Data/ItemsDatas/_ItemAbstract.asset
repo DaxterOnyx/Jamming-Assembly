@@ -14,8 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   genericItemData: {fileID: 0}
   effectsAccepted: []
-  effectsUniqueAccepted: []
+  effectsUniqueAccepted:
+  - {fileID: 11400000, guid: b07c5fc6abf338c4b880cc8a5b802e2f, type: 2}
+  - {fileID: 11400000, guid: 4f50e996e4613864a955c1f8baf72e48, type: 2}
+  - {fileID: 11400000, guid: d98db4385f7478444b72478f5b7ae77e, type: 2}
+  - {fileID: 11400000, guid: 61ad4037c41fd6a499d55955b8b77cff, type: 2}
   effectsMandatory: []
   size: {x: 1, y: 1}
   miniSprite: {fileID: 0}
   realSprite: {fileID: 0}
+  maxEffects: 3
+  maxUniqueEffects: 3
+  _type: 0
