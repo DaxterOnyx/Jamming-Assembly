@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Slot : MonoBehaviour
 {
@@ -7,7 +6,7 @@ public class Slot : MonoBehaviour
 	{
 		UNAVAILABLE = 0,
 		USABLE = 1,
-		LOCKED,
+		LOCKED = 3,
 		SPECIAL
 	}
 
@@ -21,6 +20,7 @@ public class Slot : MonoBehaviour
 	private Item item;
 	public GameObject gridPrefab;
 	private GameObject grid;
+	public bool CanAddItemSpecial = true;
 
 	internal bool IsUnvailable { get { return state == State.UNAVAILABLE; } }
 	internal bool IsBinded { get { return state == State.LOCKED; } }
@@ -59,12 +59,14 @@ public class Slot : MonoBehaviour
 
 	private void OnMouseEnter()
 	{
-		SelectionManager.Instance.SetCaseOver(this);
+		if (CanAddItemSpecial && IsSpecial)
+			SelectionManager.Instance.SetCaseOver(this);
 	}
 
 	private void OnMouseExit()
 	{
-		SelectionManager.Instance.SetCaseOver(null);
+		if (CanAddItemSpecial && IsSpecial)
+			SelectionManager.Instance.SetCaseOver(null);
 	}
 
 	internal Vector2Int GetPosition()

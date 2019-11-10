@@ -10,6 +10,7 @@ public class Item : MonoBehaviour
 	//TODO CEST MOCHE Ou pas 
 	bool IsBig { get { return itemData.size != Vector2Int.one; } }
 	bool isMini;
+	private bool isDraging;
 
 	public void Init(ItemData data)
 	{
@@ -56,6 +57,8 @@ public class Item : MonoBehaviour
 				Rise();
 			//disable collider to check the slot behind
 			GetComponent<Collider2D>().enabled = false;
+
+			isDraging = true;
 		}
 
 		return realy;
@@ -68,6 +71,24 @@ public class Item : MonoBehaviour
 	{
 		isMini = true;
 		GetComponent<SpriteRenderer>().sprite = itemData.miniSprite;
+	}
+
+	internal void EndDraggingInInventory(Slot[] newSlots)
+	{
+		isDraging = false;
+		SetSlots(newSlots);
+		GetComponent<Collider2D>().enabled = true;
+		//TODO CALL EFFECT
+
+	}
+
+	internal void EndDraggingOnSpecialSlot(Slot slot)
+	{
+		isDraging = false;
+		slots = Slot.CreateArray(slot);
+		slot.SetItem(this);
+		RecalculPosition();
+		GetComponent<Collider2D>().enabled = true;
 	}
 
 	/// <summary>
@@ -103,9 +124,7 @@ public class Item : MonoBehaviour
 		foreach (var slot in slots) {
 			slot.SetItem(this);
 		}
-		GetComponent<Collider2D>().enabled = true;
 		RecalculPosition();
-		//TODO CALL EFFECT
 	}
 
 	/// <summary>
@@ -134,7 +153,9 @@ public class Item : MonoBehaviour
 	/// </summary>
 	internal void ResetMouvement()
 	{
-		SetSlots(slots);
+		isDraging = false;
+		GetComponent<Collider2D>().enabled = true;
+		RecalculPosition();
 	}
 
 
@@ -156,7 +177,8 @@ public class Item : MonoBehaviour
 
 	private void OnMouseUp()
 	{
-		SelectionManager.Instance.DropItem(this);
+		if (isDraging)
+			SelectionManager.Instance.DropItem(this);
 	}
 
 }

@@ -41,14 +41,14 @@ public class InfoBubble : MonoBehaviour
 	{
 		UpdatePosition();
         //TODO Show Data
-        GetComponentInChildren<UIItemGrid>().setGridSize(item.size);
+        GetComponentInChildren<UIItemGrid>()?.setGridSize(item.size);
 		gameObject.SetActive(true);
 	}
 
 	public void Hide()
 	{
 		gameObject.SetActive(false);
-        GetComponentInChildren<UIItemGrid>().RestartCell();
+        GetComponentInChildren<UIItemGrid>()?.DestroyCells();
     }
 
 	
