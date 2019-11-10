@@ -1,25 +1,67 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using System.IO;
+using System.Collections.Generic;
 
 public class Item : MonoBehaviour
 {
 	public ItemData itemData;
 	Slot[] slots;
 	public Vector2Int size;
+    public List<Effect> effectList;
 
 	//TODO CEST MOCHE Ou pas 
 	bool IsBig { get { return itemData.size != Vector2Int.one; } }
 	bool isMini;
 	private bool isDraging;
 
-	public void Init(ItemData data)
-	{
-		itemData = data;
-		size = itemData.size;
-		//TODO CHOOSE EFFECT IN TAB OF ITEM DATA
-	}
+    public void Init(ItemData data)
+    {
+        int indice;
+        EffectData effectData;
+        List<Vector2Int> usedSlots = new List<Vector2Int>();
+        effectList = new List<Effect>();
+        itemData = data;
+        size = itemData.size;
+        int effectCount = 0;
+        Effect temp;
+        Vector2Int effectSlot;
+        List<int> effectIndice = new List<int>();
 
-	internal void Lock()
+        //Ajout des effets uniques dans la liste
+
+        for (int i = 0; i < itemData.EffectsUniqueAccepted.Length; i++)
+        {
+            effectIndice.Add(i);
+        }
+        while (effectIndice.Count > 0)
+        {
+            indice = UnityEngine.Random.Range(0, effectIndice.Count);
+            effectData = itemData.EffectsUniqueAccepted[effectIndice[indice]];
+            effectIndice.Remove(effectIndice[indice]);
+
+            if (effectData.probability < UnityEngine.Random.value && effectCount < itemData.maxEffects)
+            {
+                temp = ;
+                temp.probability = effectData.probability;
+                temp.icon = effectData.icon;
+                temp.effectName = effectData.effectName;
+                if (temp is SlotEffect)
+                {
+                    do
+                    {
+                        effectSlot = new Vector2Int(UnityEngine.Random.Range(0, 6), UnityEngine.Random.Range(0, 6));
+
+                    } while (usedSlots.Contains(effectSlot));
+                    usedSlots.Add(effectSlot);
+                    temp.slot = effectSlot;
+                }
+                effectList.Add(temp);
+            }
+        }
+    }
+
+        internal void Lock()
 	{
 		foreach (var slot in slots) {
 			//TODO variable change

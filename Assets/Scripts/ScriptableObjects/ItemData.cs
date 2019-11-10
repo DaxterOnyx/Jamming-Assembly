@@ -5,14 +5,18 @@ public class ItemData : ScriptableObject
 {
 	public ItemData genericItemData;
 	[SerializeField]
-	private Effect[] effectsAccepted;
+	private EffectData[] effectsAccepted;
 	[SerializeField]
-	private Effect[] effectsUniqueAccepted;
+	private EffectData[] effectsUniqueAccepted;
 	[SerializeField]
-	private Effect[] effectsMandatory;
+	private EffectData[] effectsMandatory;
 	public Vector2Int size = new Vector2Int(1, 1);
 	public Sprite miniSprite;
 	public Sprite realSprite;
+    public int maxEffects;
+    public int maxUniqueEffects;
+
+
 	[SerializeField]
 	private Type _type;
 	public enum Type
@@ -26,28 +30,28 @@ public class ItemData : ScriptableObject
 		Boot,
 		Consumable
 	}
-	public Effect[] EffectsAccepted
+	public EffectData[] EffectsAccepted
 	{
 		get {
-			var effects = new List<Effect>(effectsAccepted);
+			var effects = new List<EffectData>(effectsAccepted);
 			effects.AddRange(genericItemData?.EffectsAccepted);
 			return effects.ToArray();
 		}
 	}
 
-	public Effect[] EffectsUniqueAccepted
+	public EffectData[] EffectsUniqueAccepted
 	{
 		get {
-			var effects = new List<Effect>(effectsUniqueAccepted);
+			var effects = new List<EffectData>(effectsUniqueAccepted);
 			effects.AddRange(genericItemData?.EffectsUniqueAccepted);
 			return effects.ToArray();
 		}
 	}
 
-	public Effect[] EffectsMandatory
+	public EffectData[] EffectsMandatory
 	{
 		get {
-			var effects = new List<Effect>(effectsMandatory);
+			var effects = new List<EffectData>(effectsMandatory);
 			effects.AddRange(genericItemData?.EffectsMandatory);
 			return effects.ToArray();
 		}

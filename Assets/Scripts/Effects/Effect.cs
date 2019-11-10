@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Effect : MonoBehaviour 
+[SerializeField]
+public class Effect : MonoBehaviour 
 {
+    public Vector2Int slot;
     public string effectName;
-    public Sprite Icon;
-    public int probability;
+    public Sprite icon;
+    public float probability;
 	public Karma karma;
 	public enum Karma
 	{
