@@ -1,12 +1,11 @@
 ﻿using DG.Tweening;
-using System;
 using UnityEngine;
 
 public class Item : MonoBehaviour
 {
 	public ItemData itemData;
 	Slot[] slots;
-	public Vector2Int size; 
+	public Vector2Int size;
 
 	//TODO CEST MOCHE Ou pas 
 	bool IsBig { get { return itemData.size != Vector2Int.one; } }
@@ -14,28 +13,28 @@ public class Item : MonoBehaviour
 
 	public void Init(ItemData data)
 	{
-        itemData = data;
+		itemData = data;
 		size = itemData.size;
 		//TODO CHOOSE EFFECT IN TAB OF ITEM DATA
 	}
 
 	internal void Lock()
 	{
-        foreach (var slot in slots)
-        {
-            slot.SetState(Slot.State.LOCKED);
-            slot.SpawnGrid();
-        }
+		foreach (var slot in slots) {
+			//TODO variable change
+			//slot.SetState(Slot.State.LOCKED);
+			slot.SpawnGrid();
+		}
 	}
 
 	internal void Unlock()
 	{
-        foreach (var slot in slots)
-        {
-            slot.SetState(Slot.State.TAKEN);
-            slot.KillGrid();
-        }
-    }
+		foreach (var slot in slots) {
+			//TODO variable change
+			//slot.SetState(Slot.State.TAKEN);
+			slot.KillGrid();
+		}
+	}
 
 
 	/// <summary>
@@ -47,7 +46,7 @@ public class Item : MonoBehaviour
 		//Check if item can move
 		var realy = true;
 		foreach (var slot in slots) {
-			if (slot.isBinded)
+			if (slot.IsBinded)
 				realy = false;
 		}
 
@@ -58,7 +57,7 @@ public class Item : MonoBehaviour
 			//disable collider to check the slot behind
 			GetComponent<Collider2D>().enabled = false;
 		}
-		
+
 		return realy;
 	}
 
@@ -80,7 +79,6 @@ public class Item : MonoBehaviour
 		GetComponent<SpriteRenderer>().sprite = itemData.realSprite;
 	}
 
-
 	/// <summary>
 	/// overwrite the actual slots on the item will be
 	/// </summary>
@@ -96,9 +94,14 @@ public class Item : MonoBehaviour
 	/// <param name="newSlots">Array of usable slots</param>
 	internal void SetSlots(Slot[] newSlots)
 	{
+		if (slots != null)
+			foreach (var slot in slots) {
+				slot.RemoveItem();
+			}
+
 		slots = newSlots;
 		foreach (var slot in slots) {
-			slot.SetItem(this,true);
+			slot.SetItem(this);
 		}
 		GetComponent<Collider2D>().enabled = true;
 		RecalculPosition();
@@ -137,31 +140,23 @@ public class Item : MonoBehaviour
 
 	private void OnMouseEnter()
 	{
-		Debug.Log("Ta mere");
 		SelectionManager.Instance.SetItemOver(this);
 		InfoBubble.Instance.Show(this);
 	}
 
 	private void OnMouseExit()
 	{
-	 	Debug.Log("Ton pere");
 		InfoBubble.Instance.Hide();
 	}
 
 	private void OnMouseDown()
 	{
-		Debug.Log("Ta soeur");
-
 		SelectionManager.Instance.SelectItem(this);
 	}
 
 	private void OnMouseUp()
 	{
-
-
-		Debug.Log("Ton Frere");
-
 		SelectionManager.Instance.DropItem(this);
 	}
-	
+
 }

@@ -42,7 +42,6 @@ public class CorridorItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Oui");
         switch (type)
         {
             case typeEnum.BAG:

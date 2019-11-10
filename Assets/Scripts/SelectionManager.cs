@@ -47,23 +47,26 @@ public class SelectionManager : MonoBehaviour
 
 			return;
 		}
-		if (currentSlotOver.IsTaken) {
-			Debug.LogWarning("Slot already taken");
-			StopDragging();
-
-			return;
-		}
 		if (currentSlotOver.IsUnvailable) {
 			Debug.LogWarning("Slot is Unvailable");
 			StopDragging();
 
 			return;
 		}
-		//TODO LOOK THE TRUE SLOT UNDER THIS POSITION
-		//TODO NOT 1*1 item
+		if(!currentSlotOver.CanAcceptItem(item.size)) {
+			Debug.LogWarning("item is to big");
+			StopDragging();
 
+			return;
+		}
+		if (!currentSlotOver.IsUsable) {
+			Debug.LogWarning("Slot already taken");
+			StopDragging();
 
-		item.SetSlot(currentSlotOver);
+			return;
+		}
+
+		item.SetSlots(InventoryManager.Instance.GetSlots(currentSlotOver.GetPosition().x, currentSlotOver.GetPosition().y,item.size));
 		StopDragging();
 	}
 

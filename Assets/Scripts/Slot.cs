@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Slot : MonoBehaviour
 {
@@ -6,19 +7,26 @@ public class Slot : MonoBehaviour
 	{
 		UNAVAILABLE = 0,
 		USABLE = 1,
-		TAKEN,
-		LOCKED
+		LOCKED,
+		SPECIAL
 	}
 
 	/// <summary>
-	/// [déconseillé] préféré SetState ou IsTaken
+	/// [déconseillé] préféré SetState ou Is...
 	/// </summary>
 	public State state;
 	public Sprite[] sprites;
+	[SerializeField]
 	private Vector2Int position;
 	private Item item;
 	public GameObject gridPrefab;
 	private GameObject grid;
+
+	internal bool IsUnvailable { get { return state == State.UNAVAILABLE; } }
+	internal bool IsBinded { get { return state == State.LOCKED; } }
+	internal bool IsUsable { get { return state == State.USABLE && item == null; } }
+
+	public bool IsSpecial { get { return state == State.SPECIAL; } }
 
 	internal void SetPosition(int x, int y)
 	{
@@ -27,23 +35,16 @@ public class Slot : MonoBehaviour
 
 	internal void SetState(State p_state)
 	{
+		if (IsSpecial)
+			return;
 		this.state = p_state;
 
 		GetComponent<SpriteRenderer>().sprite = sprites[(int)state];
 	}
 
-	internal bool isBinded
-	{
-		get {
-			return state == State.LOCKED;
-		}
-	}
-
-	internal void SetItem(Item p_item, bool changeState)
+	internal void SetItem(Item p_item)
 	{
 		item = p_item;
-		if (changeState)
-			SetState(State.TAKEN);
 	}
 
 	internal static Slot[] CreateArray(Slot slot)
@@ -56,15 +57,6 @@ public class Slot : MonoBehaviour
 		return item;
 	}
 
-	internal bool IsTaken
-	{
-		get {
-			return state == State.TAKEN;
-		}
-	}
-
-	public bool IsUnvailable { get { return state == State.UNAVAILABLE; }  }
-
 	private void OnMouseEnter()
 	{
 		SelectionManager.Instance.SetCaseOver(this);
@@ -73,12 +65,17 @@ public class Slot : MonoBehaviour
 	private void OnMouseExit()
 	{
 		SelectionManager.Instance.SetCaseOver(null);
+	}
 
-	}
-	private void OnMouseOver()
+	internal Vector2Int GetPosition()
 	{
-		//print(InventoryManager.Instance.SlotPosition(SelectionManager.Instance.MouseWorldPosition,false));
+		return position;
 	}
+
+	//private void OnMouseOver()
+	//{
+	//	//print(InventoryManager.Instance.SlotPosition(SelectionManager.Instance.MouseWorldPosition,false));
+	//}
 
 	/// <summary>
 	/// Show chain on item
@@ -96,5 +93,25 @@ public class Slot : MonoBehaviour
 		if (grid != null) {
 			Destroy(grid);
 		}
+	}
+
+	internal void RemoveItem()
+	{
+		item = null;
+	}
+
+	internal bool CanAcceptItem(Vector2Int size)
+	{
+		if (IsSpecial)
+			return true;
+
+		bool isOk = true;
+		for (int i = 0; i < size.x && isOk; i++) {
+			for (int j = 0; j < size.y && isOk; j++) {
+				isOk = InventoryManager.Instance.GetSlot(position.x + i, position.y + j).IsUsable;
+			}
+		}
+
+		return isOk;
 	}
 }

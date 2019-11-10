@@ -20,25 +20,39 @@ public class DropItemManager : MonoBehaviour
 
 	public void Init()
 	{
-
 	}
 
 	public void AddItem(Item item)
 	{
-		SetItem(0, item);
+		add(0, item);
 	}
 
 	private void SetItem(int index, Item item)
 	{
-		if (slots.Length <= index) {
-			InventoryManager.Instance.AddItemOnRandSlot(item);
-		} else {
-			var oldItem = slots[index].GetItem();
-			slots[index].SetItem(item, false);
-			item.SetSlot(slots[index]);
-			item.Shrink();
-			if (oldItem != null)
+		var oldItem = slots[index].GetItem();
+		if (oldItem != null)
+			if (index >= slots.Length) {
+				InventoryManager.Instance.AddItemOnRandSlot(item);
+			} else {
+				item.SetSlot(slots[index]);
+				item.Shrink();
 				SetItem(index + 1, oldItem);
+			}
+	}
+
+	void add(int i, Item item)
+	{
+		if (item != null) {
+			if (i >= slots.Length)
+				InventoryManager.Instance.AddItemOnRandSlot(item);
+			else {
+
+				add(i + 1, slots[i].GetItem());
+				item.SetSlot(slots[i]);
+				item.Shrink();
+			}
 		}
 	}
 }
+
+

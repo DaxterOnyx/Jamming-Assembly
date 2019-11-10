@@ -6,9 +6,10 @@ public class LockObjectEffect : SlotEffect
 {
     internal override void ApplyEffect(Slot slot)
     {
-        if(slot.state == Slot.State.TAKEN)
-        {
-            slot.GetItem().Lock();
-        }
+		////TODO variable change
+  //      if(slot.state == Slot.State.TAKEN)
+  //      {
+  //          slot.GetItem().Lock();
+  //      }
     }
 }

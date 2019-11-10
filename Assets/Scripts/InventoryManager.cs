@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -24,9 +24,6 @@ public class InventoryManager : MonoBehaviour
 
 	internal void Init()
 	{
-		//if (inventoryData == null)
-		//	inventoryData = InventoryData.CreateInstance<InventoryData>();
-
 		delta = inventoryData.Gap + inventoryData.SlotSize;
 
 		inventory = new Slot[inventoryData.Width, inventoryData.Heigth];
@@ -45,22 +42,68 @@ public class InventoryManager : MonoBehaviour
 
 	internal void AddItemOnRandSlot(Item item)
 	{
-		SearchEmptySpace(item.size);
+		Vector2Int size = item.size;
+		var freeSpace = SearchEmptySpace(size);
+
+		if (freeSpace.Length == 0)
+			GameManager.Instance.Lose();
+
+		var slotPos = freeSpace[UnityEngine.Random.Range(0, freeSpace.Length)];
+
+
+		Slot[] slots = GetSlots(slotPos.x, slotPos.y, size);
+
+		item.SetSlots(slots);
 	}
 
-	private void SearchEmptySpace(Vector2Int size)
+	internal Slot[] GetSlots(int x, int y, Vector2Int size)
 	{
-		throw new NotImplementedException();
+		int width = size.x;
+		int height = size.y;
+		int nbSlot = width * height;
+
+		Slot[] slots = new Slot[nbSlot];
+
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+
+				slots[i * width + j] = GetSlot(x + i, y + j);
+			}
+		}
+
+		return slots;
 	}
+
+	private Vector2Int[] SearchEmptySpace(Vector2Int size)
+	{
+		List<Vector2Int> list = new List<Vector2Int>();
+
+		for (int x = 0; x < inventoryData.Width; x++) {
+			for (int y = 0; y < inventoryData.Heigth; y++) {
+				bool isOk = inventory[x, y].CanAcceptItem(size);
+				if (isOk)
+					list.Add(new Vector2Int(x, y));
+			}
+		}
+		return list.ToArray();
+	}
+
+
 
 	private Slot CreateSlot(int x, int y, bool locked)
 	{
-		//TODO add initial free and locked Slot
 		var slot = Instantiate(inventoryData.SlotPrefab, transform).GetComponent<Slot>();
 		slot.transform.localPosition = SlotWorldPosition(x, y);
 		slot.SetPosition(x, y);
 		slot.SetState(locked ? Slot.State.UNAVAILABLE : Slot.State.USABLE);
 		return slot;
+	}
+
+	internal Slot GetSlot(int x, int y)
+	{
+		if (x < 0 || y < 0 || x > inventoryData.Width || y > inventoryData.Heigth)
+			return null;
+		return inventory[x, y];
 	}
 
 	private Vector3 SlotWorldPosition(int x, int y)
@@ -74,9 +117,9 @@ public class InventoryManager : MonoBehaviour
 		if (isLocalPosition) {
 			position = new Vector2Int(Mathf.FloorToInt(worldPosition.x / delta), Mathf.FloorToInt(worldPosition.y / delta));
 		} else {
-			var tt = worldPosition - (Vector2)transform.position + new Vector2(delta/2, delta / 2);
+			var tt = worldPosition - (Vector2)transform.position + new Vector2(delta / 2, delta / 2);
 			//print(tt);
-			position =	SlotPosition(tt, true);
+			position = SlotPosition(tt, true);
 		}
 
 		return position;
@@ -84,9 +127,7 @@ public class InventoryManager : MonoBehaviour
 
 	public void AddEffectOnSlot(int x, int y, SlotEffect effect)
 	{
-		if (x < 0 || y < 0 || x > inventoryData.Width || y > inventoryData.Heigth)
-			return;
-
-		effect.ApplyEffect(inventory[x, y]);
+		Slot slot = GetSlot(x, y);
+		effect.ApplyEffect(slot);
 	}
 }

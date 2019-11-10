@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,5 +29,12 @@ public class GameManager : MonoBehaviour
 		SelectionManager.Instance.Init();
 		DropItemManager.Instance.Init();
 		infoBubbleInstance.Init();
+		StuffManager.Instance.Init();
+	}
+
+	internal void Lose()
+	{
+		Debug.Break();
+		throw new NotImplementedException();
 	}
 }
