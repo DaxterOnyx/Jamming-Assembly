@@ -8,7 +8,7 @@ public class BlockSlotEffect : SlotEffect
     {
 		var item = slot.GetItem();
 		if (item == null)
-			slot.GetItem().Lock();
+			item.Lock();
 		else
 			slot.SetState(Slot.State.LOCKED);
 	}
