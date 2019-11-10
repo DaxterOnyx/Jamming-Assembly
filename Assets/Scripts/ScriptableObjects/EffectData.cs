@@ -8,13 +8,11 @@ public class EffectData : ScriptableObject
     public string effectName;
     public Sprite icon;
     public float probability;
-    public Karma karma;
-    public enum Karma
+    public Effect.Karma karma;
+    [SerializeField]
+    public enum EffectName
     {
-        GOOD,
-        NEUTRAL,
-        BAD
+
     }
-    public string effectPath;
 
 }

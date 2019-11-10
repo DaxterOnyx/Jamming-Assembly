@@ -35,16 +35,6 @@ public class UIItemGrid : MonoBehaviour
         rect = this.gameObject.GetComponent<RectTransform>();
         gridSize = new Vector2Int(7, 7);
         uiCellTab = new GameObject[7, 7];
-        /*for (int x =0; x < 7; x++)
-        {
-            for (int y = 0; y < 7; y++)
-            {
-                uiCellTab[x, y] = Instantiate(data.uiCell, transform);
-            }
-        }
-        rect.sizeDelta = new Vector3(gridSize.x, gridSize.y)*(data.cellSize + data.distanceBetweenCell);
-        Debug.Log(rect.sizeDelta);
-        RestartCell();*/
     }
     internal void setGridSize(Vector2Int itemSize)
     {
