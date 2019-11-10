@@ -42,7 +42,7 @@ public class Item : MonoBehaviour
 
             if (effectData.probability < UnityEngine.Random.value && effectCount < itemData.maxEffects)
             {
-                temp = ;
+                temp = new Effect();
                 temp.probability = effectData.probability;
                 temp.icon = effectData.icon;
                 temp.effectName = effectData.effectName;
