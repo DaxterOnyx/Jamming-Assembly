@@ -6,9 +6,6 @@ public class UnlockObjectEffect : SlotEffect
 {
     internal override void ApplyEffect(Slot slot)
     {
-        if (slot.state == Slot.State.LOCKED)
-        {
-            slot.GetItem().Unlock();
-        }
+         slot.GetItem().Unlock();
     }
 }

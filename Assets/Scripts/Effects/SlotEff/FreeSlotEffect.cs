@@ -6,7 +6,7 @@ public class FreeSlotEffect : SlotEffect
 {
     internal override void ApplyEffect(Slot slot)
     {
-        if(slot.state == Slot.State.UNAVAILABLE)
+        if(slot.IsUnvailable)
         {
             slot.SetState(Slot.State.USABLE);
         }
