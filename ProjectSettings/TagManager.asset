@@ -44,17 +44,20 @@ TagManager:
   - name: BackPack
     uniqueID: 171261309
     locked: 0
+  - name: Slot
+    uniqueID: 643205223
+    locked: 0
+  - name: Item
+    uniqueID: 994386033
+    locked: 0
   - name: Ground
     uniqueID: 1643001735
     locked: 0
   - name: Wall
     uniqueID: 1153131289
     locked: 0
-  - name: Slot
-    uniqueID: 643205223
-    locked: 0
-  - name: Item
-    uniqueID: 994386033
+  - name: CorridorItem
+    uniqueID: 838538503
     locked: 0
   - name: Grid
     uniqueID: 28846551
