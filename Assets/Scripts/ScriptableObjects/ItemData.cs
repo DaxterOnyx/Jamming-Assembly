@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "ItemData", menuName = "ScriptableObjects/ItemData")]
+[CreateAssetMenu(fileName = "ItemData", menuName = "ScriptableObjects/ItemData",order = -10)]
 public class ItemData : ScriptableObject
 {
 	public ItemData genericItemData;
@@ -10,7 +10,7 @@ public class ItemData : ScriptableObject
 	private Effect[] effectsUniqueAccepted;
 	[SerializeField]
 	private Effect[] effectsMandatory;
-	public Vector2Int size;
+	public Vector2Int size = new Vector2Int(1,1);
 	public Sprite miniSprite;
 	public Sprite realSprite;
 
@@ -42,3 +42,4 @@ public class ItemData : ScriptableObject
 	}
 
 }
+
