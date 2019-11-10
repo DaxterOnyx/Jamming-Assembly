@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[SerializeField]
+
 public class Effect : MonoBehaviour 
 {
     public Vector2Int slot;
