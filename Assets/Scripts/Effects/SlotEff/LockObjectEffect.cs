@@ -6,10 +6,10 @@ public class LockObjectEffect : SlotEffect
 {
     internal override void ApplyEffect(Slot slot)
     {
-		////TODO variable change
-  //      if(slot.state == Slot.State.TAKEN)
-  //      {
-  //          slot.GetItem().Lock();
-  //      }
-    }
+		var item = slot.GetItem();
+		if (item == null)
+			slot.GetItem().Root();
+		else
+			Debug.LogError("Try to root a non item slot");
+	}
 }

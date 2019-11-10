@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class UnlockObjectEffect : SlotEffect
+﻿public class UnlockObjectEffect : SlotEffect
 {
-    internal override void ApplyEffect(Slot slot)
-    {
-         slot.GetItem().Unlock();
-    }
+	internal override void ApplyEffect(Slot slot)
+	{
+		var item = slot.GetItem();
+		if (item == null)
+			slot.GetItem().Unlock();
+		else
+			slot.SetState(Slot.State.USABLE);
+	}
 }
