@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e826a1a96f0194c87384133b200040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gap: {x: 10, y: -10, z: 0}
+  gapMouseBubble: {x: 0, y: 0, z: 0}
 --- !u!1 &257365760
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +657,7 @@ GameObject:
   - component: {fileID: 516048661}
   - component: {fileID: 516048663}
   - component: {fileID: 516048664}
+  - component: {fileID: 516048665}
   m_Layer: 0
   m_Name: fmodManager
   m_TagString: Untagged
@@ -738,6 +739,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputsound: event:/footstepSound
   walkingspeed: 0.3
+--- !u!114 &516048665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516048660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2317dcdba79531d49a8ebc39ad4ecc2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputsound: event:/blupInventaire
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
