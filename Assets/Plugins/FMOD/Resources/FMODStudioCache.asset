@@ -33,7 +33,7 @@ MonoBehaviour:
   Path: event:/pickupSound
   guid: 2e15249450f8594289f772a58547c112
   Banks:
-  - {fileID: 7364193163911822715}
+  - {fileID: -6190283376499872276}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -41,7 +41,7 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 632
---- !u!114 &-7149351266120671494
+--- !u!114 &-6190283376499872276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
