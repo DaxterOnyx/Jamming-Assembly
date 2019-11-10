@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/pickupSound
+  Event: event:/pickup
   PlayEvent: 5
   StopEvent: 0
   AllowFadeout: 1

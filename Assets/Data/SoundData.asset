@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcad69a7a2063c348bfe9c687f848aef, type: 3}
   m_Name: SoundData
   m_EditorClassIdentifier: 
-  inputsound: 
+  inputsound: event:/moveitem
