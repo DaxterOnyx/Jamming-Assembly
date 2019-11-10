@@ -45,8 +45,10 @@ public class InventoryManager : MonoBehaviour
 		Vector2Int size = item.size;
 		var freeSpace = SearchEmptySpace(size);
 
-		if (freeSpace.Length == 0)
+		if (freeSpace.Length == 0) {
 			GameManager.Instance.Lose();
+			return;
+		}
 
 		var slotPos = freeSpace[UnityEngine.Random.Range(0, freeSpace.Length)];
 
@@ -67,7 +69,7 @@ public class InventoryManager : MonoBehaviour
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
 
-				slots[i * (width-1) + j] = GetSlot(x + i, y + j);
+				slots[i * (width - 1) + j] = GetSlot(x + i, y + j);
 			}
 		}
 
