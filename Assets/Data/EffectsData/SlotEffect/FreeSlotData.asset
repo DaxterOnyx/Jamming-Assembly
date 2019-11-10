@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9c2e3d943a909449226cd1bccffa34, type: 3}
   m_Name: FreeSlotData
   m_EditorClassIdentifier: 
+  displayName: Agrandissement
   effectName: 2
   icon: {fileID: 21300000, guid: 47a28d143f188a741a6910224a71a0aa, type: 3}
   probability: 0.1

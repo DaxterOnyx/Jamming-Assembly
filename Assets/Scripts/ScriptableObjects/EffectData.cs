@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EffectData", menuName = "ScriptableObjects/EffectData", order = -10)]
 public class EffectData : ScriptableObject
 {
+    public string displayName;
     public EffectName effectName;
     public Sprite icon;
     public float probability;

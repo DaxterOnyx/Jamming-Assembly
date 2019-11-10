@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9c2e3d943a909449226cd1bccffa34, type: 3}
   m_Name: FreeObjectData
   m_EditorClassIdentifier: 
+  displayName: Purification
   effectName: 4
-  icon: {fileID: 21300000, guid: 3d59d65baa24f384e925af19ed5405f4, type: 3}
+  icon: {fileID: 21300000, guid: 37a2171104e4639499781c15a4c24be5, type: 3}
   probability: 0.9
   karma: 0
