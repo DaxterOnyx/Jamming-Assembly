@@ -54,7 +54,7 @@ public class Slot : MonoBehaviour
 		GetComponent<SpriteRenderer>().sprite = sprites[(int)state];
 		switch (state) {
 			case State.UNAVAILABLE:
-				Debug.LogError("Try to set State Unvailable");
+				Debug.LogWarning("Try to set State Unvailable");
 				break;
 			case State.USABLE:
 				KillGrid();
