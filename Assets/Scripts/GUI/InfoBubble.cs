@@ -20,7 +20,7 @@ public class InfoBubble : MonoBehaviour
 		}
 	}
 
-	public Vector3 gap;
+	public Vector3 gapMouseBubble;
 
 	internal void Init()
 	{
@@ -34,20 +34,22 @@ public class InfoBubble : MonoBehaviour
 
 	private void UpdatePosition()
 	{
-		transform.position = Input.mousePosition + gap;
+		transform.position = Input.mousePosition + gapMouseBubble;
 	}
 
 	public void Show(Item item)
 	{
 		UpdatePosition();
-		//TODO Show Data
+        //TODO Show Data
+        GetComponentInChildren<UIItemGrid>().setGridSize(item.size);
 		gameObject.SetActive(true);
 	}
 
 	public void Hide()
 	{
 		gameObject.SetActive(false);
-	}
+        GetComponentInChildren<UIItemGrid>().DestroyCells();
+    }
 
 	
 }
