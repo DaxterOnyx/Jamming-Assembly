@@ -16,10 +16,6 @@ MonoBehaviour:
   effectsAccepted: []
   effectsUniqueAccepted: []
   effectsMandatory: []
-  size: {x: 1, y: 2}
+  size: {x: 2, y: 1}
   miniSprite: {fileID: 21300000, guid: ea0b4ca4ab67093458339691e12c54a7, type: 3}
-  miniSpriteGreen: {fileID: 21300000, guid: ea0b4ca4ab67093458339691e12c54a7, type: 3}
-  miniSpriteRed: {fileID: 21300000, guid: ea0b4ca4ab67093458339691e12c54a7, type: 3}
   realSprite: {fileID: 21300000, guid: ea0b4ca4ab67093458339691e12c54a7, type: 3}
-  realSpriteGreen: {fileID: 21300000, guid: ea0b4ca4ab67093458339691e12c54a7, type: 3}
-  realSpriteRed: {fileID: 21300000, guid: ea0b4ca4ab67093458339691e12c54a7, type: 3}
