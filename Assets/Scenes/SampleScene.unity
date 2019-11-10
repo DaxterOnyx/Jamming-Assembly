@@ -700,6 +700,7 @@ GameObject:
   - component: {fileID: 516048663}
   - component: {fileID: 516048664}
   - component: {fileID: 516048665}
+  - component: {fileID: 516048666}
   m_Layer: 0
   m_Name: fmodManager
   m_TagString: Untagged
@@ -794,6 +795,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputsound: event:/blupInventaire
+--- !u!114 &516048666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516048660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b7c8edddc556e747a87250c33478959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundData: {fileID: 11400000, guid: 7668cf8dd471de5408b13394e0010b34, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

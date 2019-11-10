@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-        Instantiate(playerData.player).transform.position = this.transform.position;
+        Instantiate(playerData.player).transform.position += this.transform.position;
         corridorItem = playerData.corridorItem;
         scrollingAreaList = new List<GameObject>();
         //Setup Parameters
