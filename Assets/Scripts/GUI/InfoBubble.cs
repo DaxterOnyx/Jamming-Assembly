@@ -69,8 +69,7 @@ public class InfoBubble : MonoBehaviour
     public void Show(Item item)
     {
         UpdatePosition();
-        //TODO Show Data
-        GetComponentInChildren<UIItemGrid>()?.setGridSize(item.size);
+        GetComponentInChildren<UIItemGrid>()?.SetGrid(item);
         gameObject.SetActive(true);
     }
 

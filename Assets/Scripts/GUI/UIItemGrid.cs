@@ -36,9 +36,10 @@ public class UIItemGrid : MonoBehaviour
         gridSize = new Vector2Int(7, 7);
         uiCellTab = new GameObject[7, 7];
     }
-    internal void setGridSize(Vector2Int itemSize)
+
+    internal void SetGrid(Item item)
     {
-        gridSize = itemSize + new Vector2Int(4, 4);
+        gridSize = item.size + new Vector2Int(4, 4);
         for (int x = 0; x < gridSize.x; x++)
         {
             for (int y = 0; y < gridSize.y; y++)
@@ -47,6 +48,11 @@ public class UIItemGrid : MonoBehaviour
             }
         }
         rect.sizeDelta = new Vector3(gridSize.x, gridSize.y) * (data.cellSize + data.distanceBetweenCell);
+        uiCellTab[2,2].GetComponent<Image>().sprite = item.GetComponent<SpriteRenderer>().sprite;
+        foreach (var effect in item.effectList)
+        {
+            uiCellTab[effect.slot.x, effect.slot.y].GetComponent<Image>().sprite = effect.icon;
+        }
     }
 
     internal void RestartCell()
