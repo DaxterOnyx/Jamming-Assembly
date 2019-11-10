@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e9c2e3d943a909449226cd1bccffa34, type: 3}
-  m_Name: EffectData
+  m_Name: EffectData 1
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: 0
   icon: {fileID: 0}
   probability: 0
   karma: 0
-  effect: {fileID: 0}
