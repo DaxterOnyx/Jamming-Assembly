@@ -1526,6 +1526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infoBubbleInstance: {fileID: 190820069}
   itemGridInstance: {fileID: 1259688851}
+  gameover: GameOver
 --- !u!4 &762074294
 Transform:
   m_ObjectHideFlags: 0

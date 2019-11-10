@@ -3,9 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
+
+	//TODO RESET VALUE
 	public void ReLaunchGame()
 	{
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene(0);
 	}
 
 	public void Menu()
