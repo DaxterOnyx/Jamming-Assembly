@@ -127,8 +127,12 @@ public class Item : MonoBehaviour
 	internal void EndDraggingOnSpecialSlot(Slot slot)
 	{
 		isDraging = false;
-		slots = Slot.CreateArray(slot);
+		foreach (var t in slots) {
+			t.RemoveItem();
+		}
+	slots = Slot.CreateArray(slot);
 		slot.SetItem(this);
+		
 		RecalculPosition();
 		GetComponent<Collider2D>().enabled = true;
 	}
