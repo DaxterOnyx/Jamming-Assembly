@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: FreeObjectData
   m_EditorClassIdentifier: 
   effectName: 4
-  icon: {fileID: 0}
-  probability: 0.3
+  icon: {fileID: 21300000, guid: 3d59d65baa24f384e925af19ed5405f4, type: 3}
+  probability: 0.9
   karma: 0

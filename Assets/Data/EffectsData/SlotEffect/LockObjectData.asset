@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: LockObjectData
   m_EditorClassIdentifier: 
   effectName: 3
-  icon: {fileID: 0}
-  probability: 0.1
-  karma: 0
+  icon: {fileID: 21300000, guid: 96ceab9593de2c346a84fc420e35566d, type: 3}
+  probability: 0.7
+  karma: 2
