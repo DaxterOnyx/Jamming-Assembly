@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: UIGridData
   m_EditorClassIdentifier: 
   uiCell: {fileID: 2994450006078179673, guid: d8587f414bba3fb4f82936ff59a22c2b, type: 3}
-  distanceBetweenCell: 2
+  distanceBetweenCell: 5
   cellSize: 32

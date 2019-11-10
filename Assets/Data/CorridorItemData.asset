@@ -31,7 +31,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 11b928252d14ea040b157d1367ff7487, type: 2}
   - {fileID: 11400000, guid: d9e7706995fd3fc47ab8bd25cd31130d, type: 2}
   - {fileID: 11400000, guid: 8469169b66e79ca46a2f7ef25845bac0, type: 2}
-  bagPobability: 0.7
+  bagPobability: 0
   spriteListChest:
   - {fileID: 21300000, guid: 12c9b4d61c3fe144d945d3cf476f42a1, type: 3}
   itemListChest:

@@ -33,7 +33,7 @@ MonoBehaviour:
   Path: event:/pickupSound
   guid: 2e15249450f8594289f772a58547c112
   Banks:
-  - {fileID: 9069435336795547217}
+  - {fileID: -6190283376499872276}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -41,6 +41,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 632
+--- !u!114 &-6190283376499872276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637089729538052626
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-5787394455225283934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,7 +74,7 @@ MonoBehaviour:
   Path: event:/footstepSound
   guid: 2d68b7c30519aa4ca4cd6bdac744b80a
   Banks:
-  - {fileID: 9069435336795547217}
+  - {fileID: -6190283376499872276}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -78,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 2217993913282887806}
-  - {fileID: 9069435336795547217}
+  - {fileID: -6190283376499872276}
   EditorEvents:
   - {fileID: 3895980680333930032}
   - {fileID: -7997956308875782951}
@@ -86,10 +104,10 @@ MonoBehaviour:
   - {fileID: 809884865354844913}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 9069435336795547217}
+  - {fileID: -6190283376499872276}
   StringsBanks:
   - {fileID: 2217993913282887806}
-  stringsBankWriteTime: 637089665068679249
+  stringsBankWriteTime: 637089729537793313
   cacheVersion: 3
 --- !u!114 &339036953207145142
 MonoBehaviour:
@@ -124,7 +142,7 @@ MonoBehaviour:
   Path: event:/gameOver
   guid: 52e22c9d98d7e048bfbf6ebf3c221233
   Banks:
-  - {fileID: 9069435336795547217}
+  - {fileID: -6190283376499872276}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -146,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMOD/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637089665068679249
+  lastModified: 637089729537793313
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -203,7 +221,7 @@ MonoBehaviour:
   Path: event:/musiqueNiveau
   guid: 87700e669a2a734fb23f174d6cc8570c
   Banks:
-  - {fileID: 9069435336795547217}
+  - {fileID: -6190283376499872276}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1

@@ -22,9 +22,11 @@ public class GameManager : MonoBehaviour
 	}
 
 	public InfoBubble infoBubbleInstance;
+    public UIItemGrid itemGridInstance;
 
 	void Start()
 	{
+        itemGridInstance.Init();
 		InventoryManager.Instance.Init();
 		SelectionManager.Instance.Init();
 		DropItemManager.Instance.Init();
