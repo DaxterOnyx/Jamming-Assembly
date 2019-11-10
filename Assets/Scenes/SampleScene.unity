@@ -175,7 +175,7 @@ MonoBehaviour:
   AccesoryRightSlot: {fileID: 851875503}
   RightBootSlot: {fileID: 777626980}
   LeftBootSlot: {fileID: 816887996}
-  ConcumableSlot2: {fileID: 1086592591}
+  ConsumableSlot2: {fileID: 0}
   ConsumableSlot: {fileID: 1086592591}
   BinSlot: {fileID: 1395916428}
 --- !u!1001 &58759343
@@ -253,7 +253,12 @@ PrefabInstance:
     - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
       propertyPath: state
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
+        type: 3}
+      propertyPath: CanAddItemSpecial
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95633712b2cd3d04d9335de1d46abecd, type: 3}
@@ -673,6 +678,11 @@ PrefabInstance:
       propertyPath: state
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
+        type: 3}
+      propertyPath: isStuffSlot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8490835504462202974, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
       propertyPath: m_Sprite
@@ -971,7 +981,12 @@ PrefabInstance:
     - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
       propertyPath: state
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
+        type: 3}
+      propertyPath: isStuffSlot
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8490835504462202974, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
@@ -1062,7 +1077,12 @@ PrefabInstance:
     - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
       propertyPath: state
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
+        type: 3}
+      propertyPath: CanAddItemSpecial
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95633712b2cd3d04d9335de1d46abecd, type: 3}
@@ -1222,7 +1242,12 @@ PrefabInstance:
     - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
       propertyPath: state
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
+        type: 3}
+      propertyPath: isStuffSlot
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8490835504462202974, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
@@ -1503,7 +1528,12 @@ PrefabInstance:
     - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
       propertyPath: state
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
+        type: 3}
+      propertyPath: CanAddItemSpecial
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95633712b2cd3d04d9335de1d46abecd, type: 3}
@@ -1582,7 +1612,12 @@ PrefabInstance:
     - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
       propertyPath: state
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
+        type: 3}
+      propertyPath: isStuffSlot
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8490835504462202974, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
@@ -1739,7 +1774,12 @@ PrefabInstance:
     - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
       propertyPath: state
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
+        type: 3}
+      propertyPath: isStuffSlot
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8490835504462202974, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
@@ -1830,7 +1870,12 @@ PrefabInstance:
     - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
       propertyPath: state
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
+        type: 3}
+      propertyPath: isStuffSlot
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8490835504462202974, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
@@ -1995,7 +2040,12 @@ PrefabInstance:
     - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
       propertyPath: state
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
+        type: 3}
+      propertyPath: isStuffSlot
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8490835504462202974, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
@@ -2116,7 +2166,12 @@ PrefabInstance:
     - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
       propertyPath: state
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
+        type: 3}
+      propertyPath: isStuffSlot
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8490835504462202974, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
@@ -2299,7 +2354,12 @@ PrefabInstance:
     - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
       propertyPath: state
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
+        type: 3}
+      propertyPath: isStuffSlot
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8490835504462202974, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
@@ -2402,7 +2462,12 @@ PrefabInstance:
     - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
       propertyPath: state
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
+        type: 3}
+      propertyPath: isStuffSlot
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8490835504462202974, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
@@ -2493,7 +2558,12 @@ PrefabInstance:
     - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}
       propertyPath: state
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206124002524454493, guid: 95633712b2cd3d04d9335de1d46abecd,
+        type: 3}
+      propertyPath: isStuffSlot
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8490835504462202974, guid: 95633712b2cd3d04d9335de1d46abecd,
         type: 3}

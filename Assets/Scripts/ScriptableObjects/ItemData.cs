@@ -21,6 +21,7 @@ public class ItemData : ScriptableObject
 		Helmet,
 		Accesory,
 		Weapon,
+		Armor,
 		Shield,
 		Boot,
 		Consumable

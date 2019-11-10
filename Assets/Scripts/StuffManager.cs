@@ -78,7 +78,10 @@ public class StuffManager : MonoBehaviour
 					return ConsumableSlot;
 				else
 					return ConsumableSlot2;
+			case ItemData.Type.Armor:
+				return ChestplateSlot;
 			default:
+				Debug.LogError("Type not defined");
 				return null;
 		}
 	}

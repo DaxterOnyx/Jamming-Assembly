@@ -19,3 +19,4 @@ MonoBehaviour:
   size: {x: 0, y: 0}
   miniSprite: {fileID: 0}
   realSprite: {fileID: 0}
+  _type: 4
