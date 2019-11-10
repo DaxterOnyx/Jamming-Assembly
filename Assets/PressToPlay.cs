@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class PressToPlay : MonoBehaviour
 {
-    
+	public string game;
     // Update is called once per frame
     void Update()
     {
 		if (Input.anyKeyDown)
-			SceneManager.LoadScene(3);
+			SceneManager.LoadScene(game);
     }
 }
