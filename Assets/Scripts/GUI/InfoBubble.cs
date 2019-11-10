@@ -47,7 +47,6 @@ public class InfoBubble : MonoBehaviour
         float yPositionMin = rect.position.y - rect.sizeDelta.y;
         float xPositionMax = rect.position.x + rect.sizeDelta.x;
         float xPositionMin = rect.position.x - rect.sizeDelta.x;
-        Debug.Log(rect.position);
         if (yPositionMax> screenSize.y)
         {
             rect.pivot = new Vector2(rect.pivot.x, 1);
