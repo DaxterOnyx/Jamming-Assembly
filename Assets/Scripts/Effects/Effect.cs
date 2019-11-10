@@ -13,7 +13,7 @@ public class Effect : MonoBehaviour
 	public enum Karma
 	{
 		GOOD,
-		NEUTRAL,
+		NEUTRAL = 0,
 		BAD
 	}
 }
