@@ -64,7 +64,7 @@ public class Item : MonoBehaviour
                         break;
                 }
                 temp.icon = effectData.icon;
-                if (temp is SlotEffect)
+                if (temp is SlotEffect && !(temp is LockObjectEffect))
                 {
                     do
                     {
@@ -72,6 +72,10 @@ public class Item : MonoBehaviour
                     } while (usedSlots.Contains(effectSlot));
                     usedSlots.Add(effectSlot);
                     temp.slot = effectSlot;
+                }
+                else if (temp is LockObjectEffect)
+                {
+                    temp.slot = new Vector2Int(2, 2);
                 }
                 effectList.Add(temp);
             }
