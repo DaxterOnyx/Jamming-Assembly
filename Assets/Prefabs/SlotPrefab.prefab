@@ -50,10 +50,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9fca092d900cdcc4db3b2f58636008ef, type: 3}
   - {fileID: 21300000, guid: e7e0cd6b208a2ec43b33d58248e77b70, type: 3}
   - {fileID: 21300000, guid: 4116a9028a21ddf49a25065a886ee550, type: 3}
+  - {fileID: 21300000, guid: 3d59d65baa24f384e925af19ed5405f4, type: 3}
   position: {x: 0, y: 0}
   gridPrefab: {fileID: 686249826950241370, guid: a1551074c45b3564da8995d07033725e,
     type: 3}
   CanAddItemSpecial: 1
+  isStuffSlot: 0
 --- !u!212 &8490835504462202974
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90,7 +92,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 643205223
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e7e0cd6b208a2ec43b33d58248e77b70, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Slot : MonoBehaviour
 {
@@ -7,28 +6,36 @@ public class Slot : MonoBehaviour
 	{
 		UNAVAILABLE = 0,
 		USABLE = 1,
-		LOCKED = 3,
+		LOCKED = 2,
+		ROOTED = 3,
 		SPECIAL
 	}
 
 	/// <summary>
 	/// [déconseillé] préféré SetState ou Is...
 	/// </summary>
-	public State state;
+	[SerializeField]
+	private State state;
 	public Sprite[] sprites;
 	[SerializeField]
 	private Vector2Int position;
 	private Item item;
-	public GameObject gridPrefab;
+	[SerializeField]
+	private GameObject gridPrefab;
 	private GameObject grid;
+	[SerializeField]
+	private GameObject rootPrefab;
+	private GameObject root;
 	public bool CanAddItemSpecial;
 	public bool isStuffSlot = false;
 
-	internal bool IsUnvailable { get { return state == State.UNAVAILABLE; } }
-	internal bool IsBinded { get { return state == State.LOCKED; } }
+	internal bool IsBinded { get { return isLocked || IsRooted; } }
 	internal bool IsUsable { get { return state == State.USABLE && item == null; } }
 
 	public bool IsSpecial { get { return state == State.SPECIAL; } }
+	internal bool IsUnvailable { get { return state == State.UNAVAILABLE; } }
+	private bool IsRooted { get { return state == State.ROOTED; } }
+	public bool isLocked { get { return state == State.LOCKED; } }
 
 	internal void SetPosition(int x, int y)
 	{
@@ -37,11 +44,40 @@ public class Slot : MonoBehaviour
 
 	internal void SetState(State p_state)
 	{
-		if (IsSpecial)
+		if (IsSpecial) {
+			Debug.LogWarning("Try to change State on Special slot");
 			return;
-		this.state = p_state;
+		}
+
+		state = p_state;
 
 		GetComponent<SpriteRenderer>().sprite = sprites[(int)state];
+		switch (state) {
+			case State.UNAVAILABLE:
+				Debug.LogError("Try to set State Unvailable");
+				break;
+			case State.USABLE:
+				KillGrid();
+				KillRoot();
+				break;
+			case State.LOCKED:
+				SpawnGrid();
+				break;
+			case State.ROOTED:
+				SpawnRoot();
+				break;
+			case State.SPECIAL:
+				Debug.LogError("Try to set State Special");
+				break;
+			default:
+				Debug.LogError("Try to set State not defined");
+				return;
+		}
+	}
+
+	internal State GetState()
+	{
+		return state;
 	}
 
 	internal void SetItem(Item p_item)
@@ -61,7 +97,7 @@ public class Slot : MonoBehaviour
 
 	internal bool CanAcceptStuff(Item item)
 	{
-		return this == StuffManager.Instance.GetSlot(item.itemData.type,0) || this == StuffManager.Instance.GetSlot(item.itemData.type, 1);
+		return this == StuffManager.Instance.GetSlot(item.itemData.type, 0) || this == StuffManager.Instance.GetSlot(item.itemData.type, 1);
 	}
 
 	private void OnMouseEnter()
@@ -91,7 +127,10 @@ public class Slot : MonoBehaviour
 	/// </summary>
 	internal void SpawnGrid()
 	{
-		grid = Instantiate(gridPrefab, transform);
+		if (grid == null)
+			grid = Instantiate(gridPrefab, transform);
+		else
+			grid.SetActive(true);
 	}
 
 	/// <summary>
@@ -100,7 +139,28 @@ public class Slot : MonoBehaviour
 	internal void KillGrid()
 	{
 		if (grid != null) {
-			Destroy(grid);
+			grid.SetActive(false);
+		}
+	}
+
+	/// <summary>
+	/// Show root on item
+	/// </summary>
+	internal void SpawnRoot()
+	{
+		if (root == null)
+			root = Instantiate(rootPrefab, transform);
+		else
+			root.SetActive(true);
+	}
+
+	/// <summary>
+	/// Hide root on item
+	/// </summary>
+	internal void KillRoot()
+	{
+		if (root != null) {
+			root.SetActive(false);
 		}
 	}
 

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public ItemData itemData;
-    Slot[] slots;
-    public Vector2Int size;
-    public List<Effect> effectList;
+	public ItemData itemData;
+	Slot[] slots;
+	public Vector2Int size;
+	public List<Effect> effectList;
 
     //TODO CEST MOCHE Ou pas 
     bool IsBig { get { return itemData.size != Vector2Int.one; } }
@@ -31,17 +31,15 @@ public class Item : MonoBehaviour
         Vector2Int effectSlot;
         List<int> effectIndice = new List<int>();
 
-        //Ajout des effets uniques dans la liste
+		//Ajout des effets uniques dans la liste
 
-        for (int i = 0; i < itemData.EffectsUniqueAccepted.Length; i++)
-        {
-            effectIndice.Add(i);
-        }
-        while (effectIndice.Count > 0)
-        {
-            indice = UnityEngine.Random.Range(0, effectIndice.Count);
-            effectData = itemData.EffectsUniqueAccepted[effectIndice[indice]];
-            effectIndice.Remove(effectIndice[indice]);
+		for (int i = 0; i < itemData.EffectsUniqueAccepted.Length; i++) {
+			effectIndice.Add(i);
+		}
+		while (effectIndice.Count > 0) {
+			indice = UnityEngine.Random.Range(0, effectIndice.Count);
+			effectData = itemData.EffectsUniqueAccepted[effectIndice[indice]];
+			effectIndice.Remove(effectIndice[indice]);
 
             if (effectData.probability < UnityEngine.Random.value && effectCount < itemData.maxEffects)
             {
@@ -79,40 +77,90 @@ public class Item : MonoBehaviour
         }
     }
 
-    internal void Lock()
-    {
-        foreach (var slot in slots)
-        {
-            //TODO variable change
-            //slot.SetState(Slot.State.LOCKED);
-            slot.SpawnGrid();
-        }
-    }
+	internal void Lock()
+	{
+		bool reset = false;
+		Slot.State resetState = Slot.State.USABLE;
+		foreach (var slot in slots) {
+			if (!slot.IsBinded) {
+				slot.SetState(Slot.State.LOCKED);
+			} else {
+				reset = true;
+				resetState = slot.GetState();
+			}
+		}
+		if(reset)
+			foreach (var slot in slots) {
+				slot.SetState(p_state: resetState);
+			}
+	}
 
-    internal void Unlock()
-    {
-        foreach (var slot in slots)
-        {
-            //TODO variable change
-            //slot.SetState(Slot.State.TAKEN);
-            slot.KillGrid();
-        }
-    }
+	internal void Unlock()
+	{
+		bool reset = false;
+		Slot.State resetState = Slot.State.USABLE;
+		foreach (var slot in slots) {
+			if (slot.IsBinded) {
+				slot.SetState(Slot.State.USABLE);
+			} else {
+				reset = true;
+				resetState = slot.GetState();
+			}
+		}
+		if (reset)
+			foreach (var slot in slots) {
+				slot.SetState(p_state: resetState);
+			}
+	}
 
+	internal void Root()
+	{
+		bool reset = false;
+		Slot.State resetState = Slot.State.USABLE;
+		foreach (var slot in slots) {
+			if (!slot.IsBinded) {
+				slot.SetState(Slot.State.ROOTED);
+			} else {
+				reset = true;
+				resetState = slot.GetState();
+			}
+		}
+		if (reset)
+			foreach (var slot in slots) {
+				slot.SetState(p_state: resetState);
+			}
+	}
 
-    /// <summary>
-    /// Prepare the item to follow the mouse
-    /// </summary>
-    /// <returns>if item can realy move</returns>
-    internal bool SetInMouvement()
-    {
-        //Check if item can move
-        var realy = true;
-        foreach (var slot in slots)
-        {
-            if (slot.IsBinded)
-                realy = false;
-        }
+	internal void UnRoot()
+	{
+		bool reset = false;
+		Slot.State resetState = Slot.State.USABLE;
+		foreach (var slot in slots) {
+			if (slot.IsBinded) {
+				slot.SetState(Slot.State.USABLE);
+			} else {
+				reset = true;
+				resetState = slot.GetState();
+			}
+		}
+		if (reset)
+			foreach (var slot in slots) {
+				slot.SetState(p_state: resetState);
+			}
+	}
+
+	/// <summary>
+	/// Prepare the item to follow the mouse
+	/// </summary>
+	/// <returns>if item can realy move</returns>
+	internal bool SetInMouvement()
+	{
+		//Check if item can move
+		var realy = true;
+		foreach (var slot in slots) {
+			if (slot.IsBinded)
+				realy = false;
+		}
 
         if (realy)
         {
