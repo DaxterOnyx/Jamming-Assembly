@@ -13,8 +13,8 @@ public class ItemData : ScriptableObject
 	public Vector2Int size = new Vector2Int(1, 1);
 	public Sprite miniSprite;
 	public Sprite realSprite;
-    public int maxEffects;
-    public int maxUniqueEffects;
+	public int maxEffects;
+	public int maxUniqueEffects;
 
 
 	[SerializeField]
@@ -43,7 +43,8 @@ public class ItemData : ScriptableObject
 	{
 		get {
 			var effects = new List<EffectData>(effectsUniqueAccepted);
-			effects.AddRange(genericItemData?.EffectsUniqueAccepted);
+			if (genericItemData != null)
+				effects.AddRange(genericItemData.EffectsUniqueAccepted);
 			return effects.ToArray();
 		}
 	}
@@ -52,7 +53,8 @@ public class ItemData : ScriptableObject
 	{
 		get {
 			var effects = new List<EffectData>(effectsMandatory);
-			effects.AddRange(genericItemData?.EffectsMandatory);
+			if (genericItemData != null)
+				effects.AddRange(genericItemData.EffectsMandatory);
 			return effects.ToArray();
 		}
 	}

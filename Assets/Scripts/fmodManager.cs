@@ -14,9 +14,7 @@ public class fmodManager : MonoBehaviour
                 m_instance = FindObjectOfType<fmodManager>();
             if (m_instance == null)
             {
-                GameObject newInstance = Instantiate(new GameObject());
-                newInstance.name = "fmodManager (Singleton)";
-                m_instance = newInstance.AddComponent<fmodManager>();
+				Debug.LogError("Not Fmod MAnager instantiate");
             }
 
             return m_instance;
