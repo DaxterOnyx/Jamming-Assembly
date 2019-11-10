@@ -874,7 +874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7c8edddc556e747a87250c33478959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputvoiceline: event:/voiceLine
+  inputvoiceline: 
   soundData: {fileID: 11400000, guid: 7668cf8dd471de5408b13394e0010b34, type: 2}
 --- !u!1 &519420028
 GameObject:
@@ -2005,7 +2005,7 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 4
   m_StartCorner: 2
-  m_StartAxis: 0
+  m_StartAxis: 1
   m_CellSize: {x: 32, y: 32}
   m_Spacing: {x: 5, y: 5}
   m_Constraint: 0
