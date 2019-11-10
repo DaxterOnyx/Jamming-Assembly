@@ -77,6 +77,7 @@ public class Item : MonoBehaviour
                 {
                     temp.slot = new Vector2Int(2, 2);
                 }
+                temp.displayName = effectData.displayName;
                 effectList.Add(temp);
             }
         }
@@ -201,7 +202,7 @@ public class Item : MonoBehaviour
             effect.ApplyEffect(InventoryManager.Instance.GetSlot(vector.x,vector.y));
             Destroy(effect);
         }
-
+        effectList = new List<Effect>();
     }
 
     internal void EndDraggingOnSpecialSlot(Slot slot)

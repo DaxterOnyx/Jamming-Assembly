@@ -20,6 +20,7 @@ public class InfoBubble : MonoBehaviour
         }
     }
 
+    public NameList nameList;
     private RectTransform rect;
     public Vector2 screenSize;
     public Vector3 gapMouseBubble;
@@ -70,6 +71,8 @@ public class InfoBubble : MonoBehaviour
     {
         UpdatePosition();
         GetComponentInChildren<UIItemGrid>()?.SetGrid(item);
+        GetComponentInChildren<IconList>()?.Fill(item);
+        nameList.Fill(item);
         gameObject.SetActive(true);
     }
 
@@ -77,6 +80,8 @@ public class InfoBubble : MonoBehaviour
     {
         gameObject.SetActive(false);
         GetComponentInChildren<UIItemGrid>()?.RestartCell();
+        GetComponentInChildren<IconList>()?.Empty();
+        nameList.Empty();
     }
 
 

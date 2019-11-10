@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Effect : MonoBehaviour 
 {
+    public string displayName;
     public Vector2Int slot;
     public string effectName;
     public Sprite icon;

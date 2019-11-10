@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9c2e3d943a909449226cd1bccffa34, type: 3}
   m_Name: BlockSlotData
   m_EditorClassIdentifier: 
+  displayName: Condamnation
   effectName: 1
   icon: {fileID: 21300000, guid: d50cfc05e7e29bf4ba0d602c856442de, type: 3}
   probability: 0.6

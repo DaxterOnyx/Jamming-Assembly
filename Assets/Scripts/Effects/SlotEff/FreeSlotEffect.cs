@@ -10,5 +10,14 @@ public class FreeSlotEffect : SlotEffect
         {
             slot.SetState(Slot.State.USABLE);
         }
+        if (slot.isLocked)
+        {
+            if (slot.GetItem() != null)
+            {
+                slot.GetItem().Unlock();
+            }
+            
+            slot.SetState(Slot.State.USABLE);
+        }
     }
 }
