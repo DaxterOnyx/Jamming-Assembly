@@ -54,6 +54,8 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   gridPrefab: {fileID: 686249826950241370, guid: a1551074c45b3564da8995d07033725e,
     type: 3}
+  rootPrefab: {fileID: 686249826950241370, guid: 79d05e1ef942a4744ab162fc066f26a6,
+    type: 3}
   CanAddItemSpecial: 1
   isStuffSlot: 0
 --- !u!212 &8490835504462202974
