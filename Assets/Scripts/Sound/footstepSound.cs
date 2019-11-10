@@ -6,9 +6,8 @@ public class footstepSound : MonoBehaviour
 {
     [FMODUnity.EventRef]
     public string inputsound;       //Sound to play
-    bool ismoving;        
-    public float walkingspeed;
-
+    bool ismoving;
+    public float walkspeed;
 
     void Update()
     {
@@ -24,6 +23,6 @@ public class footstepSound : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("callFootsteps", 0, walkingspeed);  //les bruits de pas ne peuvent se répéter qu'avec walkingspeed d'intervalle
+        InvokeRepeating("callFootsteps", 0, walkspeed);  //les bruits de pas ne peuvent se répéter qu'avec walkingspeed d'intervalle
     }
 }
