@@ -41,7 +41,7 @@ public class Item : MonoBehaviour
 			effectData = itemData.EffectsUniqueAccepted[effectIndice[indice]];
 			effectIndice.Remove(effectIndice[indice]);
 
-            if (effectData.probability < UnityEngine.Random.value && effectCount < itemData.maxEffects)
+            if (effectData.probability < UnityEngine.Random.value && effectCount < itemData.MaxUniqueEffects)
             {
                 switch (effectData.effectName)
                 {

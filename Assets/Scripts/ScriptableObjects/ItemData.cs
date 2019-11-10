@@ -13,8 +13,10 @@ public class ItemData : ScriptableObject
 	public Vector2Int size = new Vector2Int(1, 1);
 	public Sprite miniSprite;
 	public Sprite realSprite;
-	public int maxEffects;
-	public int maxUniqueEffects;
+	[SerializeField]
+    private int maxEffects;
+	[SerializeField]
+    private int maxUniqueEffects;
 
 
 	[SerializeField]
@@ -68,6 +70,30 @@ public class ItemData : ScriptableObject
 				return _type;
 		}
 	}
+
+    public int MaxUniqueEffects
+    {
+        get
+        {
+            if(maxUniqueEffects > 0)
+            {
+                return maxUniqueEffects;
+            }
+            return genericItemData.MaxUniqueEffects;
+        }
+    }
+
+    public int MaxEffects
+    {
+        get
+        {
+            if (maxEffects > 0)
+            {
+                return maxEffects;
+            }
+            return genericItemData.MaxEffects;
+        }
+    }
 
 }
 
