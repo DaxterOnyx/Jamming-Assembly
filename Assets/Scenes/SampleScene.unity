@@ -488,6 +488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameList: {fileID: 0}
+  iconList: {fileID: 0}
   screenSize: {x: 1600, y: 900}
   gapMouseBubble: {x: 0, y: 0, z: 0}
 --- !u!114 &190820070
