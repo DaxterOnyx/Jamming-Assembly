@@ -254,7 +254,8 @@ public class Item : MonoBehaviour
         {
             slot.SetItem(this);
         }
-        RecalculPosition();
+		if(!isDraging)
+			RecalculPosition();
     }
 
     /// <summary>
@@ -298,7 +299,8 @@ public class Item : MonoBehaviour
 
     private void OnMouseExit()
     {
-        InfoBubble.Instance.Hide();
+		if(!isDraging)
+			InfoBubble.Instance.Hide();
     }
 
     private void OnMouseDown()
@@ -308,8 +310,10 @@ public class Item : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (isDraging)
+        if (isDraging) {
+			InfoBubble.Instance.Hide();
             SelectionManager.Instance.DropItem(this);
-    }
+		}
+	}
 
 }

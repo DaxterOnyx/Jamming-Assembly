@@ -24,7 +24,7 @@ public class DropItemManager : MonoBehaviour
 
 	public void AddItem(Item item)
 	{
-		add(0, item);
+		Add(0, item);
 	}
 
 	private void SetItem(int index, Item item)
@@ -40,14 +40,14 @@ public class DropItemManager : MonoBehaviour
 			}
 	}
 
-	void add(int i, Item item)
+	void Add(int i, Item item)
 	{
 		if (item != null) {
 			if (i >= slots.Length)
 				InventoryManager.Instance.AddItemOnRandSlot(item);
 			else {
 
-				add(i + 1, slots[i].GetItem());
+				Add(i + 1, slots[i].GetItem());
 				item.SetSlot(slots[i]);
 				item.Shrink();
 			}

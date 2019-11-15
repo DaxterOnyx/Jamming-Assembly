@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
 	public InfoBubble infoBubbleInstance;
     public UIItemGrid itemGridInstance;
-	public string gameover;
+	public string gameoverSceneName;
 
 	void Start()
 	{
@@ -38,6 +38,6 @@ public class GameManager : MonoBehaviour
 
 	internal void Lose()
 	{
-		SceneManager.LoadScene(gameover);
+		SceneManager.LoadScene(gameoverSceneName);
 	}
 }

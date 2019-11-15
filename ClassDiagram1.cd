@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Assets.Scripts.Effects.LifeBuff">
+    <Position X="7" Y="7.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Assets\Scripts\Effects\PlayerEffect\LifeBuff.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.Scripts.Effects.LifeDebuff">
+    <Position X="9.5" Y="7.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Assets\Scripts\Effects\PlayerEffect\LifeDebuff.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlockSlotEffect">
+    <Position X="15" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Effects\SlotEff\BlockSlotEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsumeEffect">
+    <Position X="4.5" Y="5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Effects\ConsumeEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CorridorItem">
+    <Position X="26.25" Y="1" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="CorridorItem.typeEnum">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\CorridorScript\CorridorItem.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEABAAAAAAASAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\CorridorScript\CorridorItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="data" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CorridorItemData">
+    <Position X="22" Y="2" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAFAAUAAAAAAAAgAAAAAAABCA=</HashCode>
+      <FileName>Assets\Scripts\ScriptableObjects\CorridorItemData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dragSound" Collapsed="true">
+    <Position X="35.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Sound\dragSound.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DropItemManager">
+    <Position X="9.75" Y="19.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAQAAAAAAAAgAAAAAAIQAACAAACAAA=</HashCode>
+      <FileName>Assets\Scripts\DropItemManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="slots" />
+      <Field Name="m_instance" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Effect">
+    <Position X="13" Y="0.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Effect.Karma">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Effects\Effect.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAABAAAAAAgAAAEAAAAAAAAAAAAQACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Effects\Effect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EffectData">
+    <Position X="6.5" Y="23" Width="2" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="EffectData.EffectName">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\ScriptableObjects\EffectData.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAABAAAAAAgAAAEAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ScriptableObjects\EffectData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="fmodManager">
+    <Position X="3.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAGAAAAAAQAAAAAAAAAEAAAAIQAAAACAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Sound\fmodManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_instance" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="footstepSound" Collapsed="true">
+    <Position X="37" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAALAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Sound\footstepSound.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FreeSlotEffect">
+    <Position X="18" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Effects\SlotEff\FreeSlotEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager">
+    <Position X="24.5" Y="8" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAADAAAAAAAAAAAAAAAAAAIAAIQAAAAAQAAAA=</HashCode>
+      <FileName>Assets\Scripts\GameManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="itemGridInstance" />
+      <Field Name="infoBubbleInstance" />
+      <Field Name="m_instance" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GameOverManager" Collapsed="true">
+    <Position X="38.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\GameOverManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IconList">
+    <Position X="27.75" Y="12" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAIAAAAAAAAACAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\GUI\IconList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InfoBubble">
+    <Position X="24" Y="11.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAIAACAAEAYAIAAAAAAEAAAIQAAGAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\GUI\InfoBubble.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="iconList" />
+      <Field Name="m_instance" />
+      <Field Name="nameList" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="InventoryData">
+    <Position X="9.5" Y="11.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CAAEAAAAQAAAAAAAAAAAAEEAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ScriptableObjects\InventoryData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryManager">
+    <Position X="8.75" Y="14.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>ACCAAABAAIAAAAAAAAAACAAAAAABAAAKQIAiAEAAAAA=</HashCode>
+      <FileName>Assets\Scripts\InventoryManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="inventoryData" />
+      <Field Name="m_instance" />
+      <Field Name="inventory" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Item">
+    <Position X="14" Y="23.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>qEAQBABACAAAACAQAJBAIAAgEAAAAAACYAECAAACBAA=</HashCode>
+      <FileName>Assets\Scripts\Item.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="itemData" />
+      <Field Name="slots" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ItemData">
+    <Position X="10" Y="22.25" Width="3" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="ItemData.Type">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\ScriptableObjects\ItemData.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAASAAYBAAAAAAAQRAACEQEAIAEAACAA=</HashCode>
+      <FileName>Assets\Scripts\ScriptableObjects\ItemData.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="effectsUniqueAccepted" />
+      <Field Name="effectsMandatory" />
+      <Field Name="effectsAccepted" />
+      <Field Name="genericItemData" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LockObjectEffect">
+    <Position X="12" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Effects\SlotEff\LockObjectEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoopingChildObjects" Collapsed="true">
+    <Position X="40.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAACAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\CorridorScript\LoopingChildObjects.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuManager" Collapsed="true">
+    <Position X="35.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MenuManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NameList">
+    <Position X="20.75" Y="12" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAIAAAAAAAAACAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\GUI\NameList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerData">
+    <Position X="27.75" Y="19" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAoAAAAAAAAAAQAADIAAAAAAAAAAAIBAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ScriptableObjects\PlayerData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerEffect">
+    <Position X="8.25" Y="5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAIAAAA=</HashCode>
+      <FileName>Assets\Scripts\Effects\PlayerEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerManager">
+    <Position X="24.25" Y="18.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAUIAAkAACAAEAAAAgAAABAAAAAABQCIQAIAAAAAIAI=</HashCode>
+      <FileName>Assets\Scripts\PlayerManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_instance" />
+      <Field Name="playerData" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PressToPlay" Collapsed="true">
+    <Position X="37" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\PressToPlay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RendererExtensions" Collapsed="true">
+    <Position X="38.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\CorridorScript\RendererExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScrollingScript" Collapsed="true">
+    <Position X="40.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAQAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\CorridorScript\ScrollingScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SelectionManager">
+    <Position X="18.75" Y="18.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgBSAAgAAAAAAAIAAAAAAAAIQDYSAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SelectionManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="currentItemOver" />
+      <Field Name="currentSlotOver" />
+      <Field Name="m_instance" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Slot">
+    <Position X="14.25" Y="12.5" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Slot.State">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Slot.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAADBEAAoCIAFMIAAARgoABAEAAAIgIEACABACCAAAg=</HashCode>
+      <FileName>Assets\Scripts\Slot.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="item" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SlotEffect">
+    <Position X="16.5" Y="5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Effects\SlotEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundData" Collapsed="true">
+    <Position X="35.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ScriptableObjects\SoundData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StuffManager">
+    <Position X="19.25" Y="15" Width="2.75" />
+    <AssociationLine Name="AccesoryLeftSlot" Type="Slot">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.212" Y="-0.073" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="AccesoryRightSlot" Type="Slot">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.196" Y="-0.081" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="BinSlot" Type="Slot">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.157" Y="-0.128" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="ChestplateSlot" Type="Slot">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.181" Y="-0.167" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="ConsumableSlot" Type="Slot">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.212" Y="-0.097" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="ConsumableSlot2" Type="Slot">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.173" Y="-0.105" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="LeftBootSlot" Type="Slot">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.204" Y="-0.073" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="HelmetSlot" Type="Slot">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.123" Y="-0.196" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="RightBootSlot" Type="Slot">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.217" Y="-0.07" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="ShieldSlot" Type="Slot">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.17" Y="-0.117" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="WeaponSlot" Type="Slot">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.193" Y="-0.109" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AYQUAAAAAKAgAAAAAQAAAAAIEAAEAAAIQAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\StuffManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="AccesoryLeftSlot" />
+      <Field Name="AccesoryRightSlot" />
+      <Field Name="BinSlot" />
+      <Field Name="ChestplateSlot" />
+      <Field Name="ConsumableSlot" />
+      <Field Name="ConsumableSlot2" />
+      <Field Name="LeftBootSlot" />
+      <Field Name="HelmetSlot" />
+      <Field Name="m_instance" />
+      <Field Name="RightBootSlot" />
+      <Field Name="ShieldSlot" />
+      <Field Name="WeaponSlot" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TutoManager" Collapsed="true">
+    <Position X="37" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAABAAAAAAAAAAAAAAgAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Assets\Scripts\TutoManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIGridData">
+    <Position X="32" Y="8.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAQAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ScriptableObjects\UIGridData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIItemGrid">
+    <Position X="28.5" Y="7.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAIAAAAABAgAAIQgASAAIAAAA=</HashCode>
+      <FileName>Assets\Scripts\GUI\UIItemGrid.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="data" />
+      <Field Name="m_instance" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="UISlot" Collapsed="true">
+    <Position X="38.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\GUI\UISlot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnlockObjectEffect">
+    <Position X="21" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Effects\SlotEff\UnlockObjectEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

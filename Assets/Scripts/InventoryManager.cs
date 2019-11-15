@@ -96,7 +96,7 @@ public class InventoryManager : MonoBehaviour
 	{
 		var slot = Instantiate(inventoryData.SlotPrefab, transform).GetComponent<Slot>();
 		slot.transform.localPosition = SlotWorldPosition(x, y);
-		slot.SetPosition(x, y);
+		slot.SetPositionInInventory(x, y);
 		slot.SetState(locked ? Slot.State.UNAVAILABLE : Slot.State.USABLE);
 		return slot;
 	}

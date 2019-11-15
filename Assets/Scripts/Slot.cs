@@ -11,12 +11,15 @@ public class Slot : MonoBehaviour
 		SPECIAL
 	}
 
-	/// <summary>
-	/// [déconseillé] préféré SetState ou Is...
-	/// </summary>
+	internal static Slot[] CreateArray(Slot slot)
+	{
+		return new Slot[] { slot };
+	}
+
 	[SerializeField]
 	private State state;
-	public Sprite[] sprites;
+	[SerializeField]
+	private Sprite[] sprites;
 	[SerializeField]
 	private Vector2Int position;
 	private Item item = null;
@@ -26,18 +29,24 @@ public class Slot : MonoBehaviour
 	[SerializeField]
 	private GameObject rootPrefab;
 	private GameObject root;
-	public bool CanAddItemSpecial;
+	[SerializeField]
+	private bool CanAddItemSpecial;
 	public bool isStuffSlot = false;
 
-	internal bool IsBinded { get { return isLocked || IsRooted; } }
-	internal bool IsUsable { get { return state == State.USABLE && item == null; } }
+	public bool IsBinded { get { return IsLocked || IsRooted; } }
+	public bool IsUsable { get { return state == State.USABLE && item == null; } }
 
 	public bool IsSpecial { get { return state == State.SPECIAL; } }
-	internal bool IsUnvailable { get { return state == State.UNAVAILABLE; } }
-	private bool IsRooted { get { return state == State.ROOTED; } }
-	public bool isLocked { get { return state == State.LOCKED; } }
+	public bool IsUnvailable { get { return state == State.UNAVAILABLE; } }
+	public bool IsRooted { get { return state == State.ROOTED; } }
+	public bool IsLocked { get { return state == State.LOCKED; } }
 
-	internal void SetPosition(int x, int y)
+	/// <summary>
+	/// Define this to apply effect
+	/// </summary>
+	/// <param name="x"></param>
+	/// <param name="y"></param>
+	internal void SetPositionInInventory(int x, int y)
 	{
 		position = new Vector2Int(x, y);
 	}
@@ -57,14 +66,14 @@ public class Slot : MonoBehaviour
 				Debug.LogWarning("Try to set State Unvailable");
 				break;
 			case State.USABLE:
-				KillGrid();
-				KillRoot();
+				HideGrid();
+				HideRoot();
 				break;
 			case State.LOCKED:
-				SpawnGrid();
+				ShowGrid();
 				break;
 			case State.ROOTED:
-				SpawnRoot();
+				ShowRoot();
 				break;
 			case State.SPECIAL:
 				Debug.LogError("Try to set State Special");
@@ -75,7 +84,11 @@ public class Slot : MonoBehaviour
 		}
 	}
 
-	internal State GetState()
+	/// <summary>
+	/// Not use to compare
+	/// </summary>
+	/// <returns></returns>
+	public State GetState()
 	{
 		return state;
 	}
@@ -83,11 +96,6 @@ public class Slot : MonoBehaviour
 	internal void SetItem(Item p_item)
 	{
 		item = p_item;
-	}
-
-	internal static Slot[] CreateArray(Slot slot)
-	{
-		return new Slot[] { slot };
 	}
 
 	internal Item GetItem()
@@ -125,7 +133,7 @@ public class Slot : MonoBehaviour
 	/// <summary>
 	/// Show chain on item
 	/// </summary>
-	internal void SpawnGrid()
+	internal void ShowGrid()
 	{
 		if (grid == null)
 			grid = Instantiate(gridPrefab, transform);
@@ -136,7 +144,7 @@ public class Slot : MonoBehaviour
 	/// <summary>
 	/// Hide chain on item
 	/// </summary>
-	internal void KillGrid()
+	internal void HideGrid()
 	{
 		if (grid != null) {
 			grid.SetActive(false);
@@ -146,7 +154,7 @@ public class Slot : MonoBehaviour
 	/// <summary>
 	/// Show root on item
 	/// </summary>
-	internal void SpawnRoot()
+	internal void ShowRoot()
 	{
 		if (root == null)
 			root = Instantiate(rootPrefab, transform);
@@ -157,7 +165,7 @@ public class Slot : MonoBehaviour
 	/// <summary>
 	/// Hide root on item
 	/// </summary>
-	internal void KillRoot()
+	internal void HideRoot()
 	{
 		if (root != null) {
 			root.SetActive(false);
@@ -174,10 +182,11 @@ public class Slot : MonoBehaviour
 		if (IsSpecial)
 			return true;
 
+		InventoryManager l_inventory = InventoryManager.Instance;
 		bool isOk = true;
 		for (int i = 0; i < size.x && isOk; i++) {
 			for (int j = 0; j < size.y && isOk; j++) {
-				isOk = InventoryManager.Instance.GetSlot(position.x + i, position.y + j).IsUsable;
+				isOk = l_inventory.GetSlot(position.x + i, position.y + j).IsUsable;
 			}
 		}
 

@@ -7,17 +7,20 @@ using UnityEngine;
 /// </summary>
 public class LoopingChildObjects : MonoBehaviour
 {
-    /// 1 - Background is infinite
-    /// </summary>
-    public bool isLooping = false;
+	/// <summary>
+	/// 1 - Background is infinite
+	/// </summary>
+	public bool isLooping = false;
 
     /// <summary>
     /// 2 - List of children with a renderer.
     /// </summary>
     private List<SpriteRenderer> backgroundPart;
 
-    // 3 - Get all the children
-    void Start()
+	/// <summary>
+	/// 3 - Get all the children 
+	/// </summary>
+	void Start()
     {
         // For infinite background only
         if (isLooping)
